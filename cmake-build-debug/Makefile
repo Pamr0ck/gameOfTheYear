@@ -177,6 +177,33 @@ main.cpp.s:
 	$(MAKE) -f CMakeFiles/gameOfTheYear.dir/build.make CMakeFiles/gameOfTheYear.dir/main.cpp.s
 .PHONY : main.cpp.s
 
+unit.o: unit.cpp.o
+
+.PHONY : unit.o
+
+# target to build an object file
+unit.cpp.o:
+	$(MAKE) -f CMakeFiles/gameOfTheYear.dir/build.make CMakeFiles/gameOfTheYear.dir/unit.cpp.o
+.PHONY : unit.cpp.o
+
+unit.i: unit.cpp.i
+
+.PHONY : unit.i
+
+# target to preprocess a source file
+unit.cpp.i:
+	$(MAKE) -f CMakeFiles/gameOfTheYear.dir/build.make CMakeFiles/gameOfTheYear.dir/unit.cpp.i
+.PHONY : unit.cpp.i
+
+unit.s: unit.cpp.s
+
+.PHONY : unit.s
+
+# target to generate assembly for a file
+unit.cpp.s:
+	$(MAKE) -f CMakeFiles/gameOfTheYear.dir/build.make CMakeFiles/gameOfTheYear.dir/unit.cpp.s
+.PHONY : unit.cpp.s
+
 # Help Target
 help:
 	@echo "The following are some of the valid targets for this Makefile:"
@@ -192,6 +219,9 @@ help:
 	@echo "... main.o"
 	@echo "... main.i"
 	@echo "... main.s"
+	@echo "... unit.o"
+	@echo "... unit.i"
+	@echo "... unit.s"
 .PHONY : help
 
 

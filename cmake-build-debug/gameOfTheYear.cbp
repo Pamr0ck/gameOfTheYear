@@ -96,6 +96,12 @@
 		<Unit filename="/home/kot/ETU/gameOfTheYear/main.cpp">
 			<Option target="gameOfTheYear"/>
 		</Unit>
+		<Unit filename="/home/kot/ETU/gameOfTheYear/unit.cpp">
+			<Option target="gameOfTheYear"/>
+		</Unit>
+		<Unit filename="/home/kot/ETU/gameOfTheYear/unit.h">
+			<Option target="gameOfTheYear"/>
+		</Unit>
 		<Unit filename="/home/kot/ETU/gameOfTheYear/CMakeLists.txt">
 			<Option virtualFolder="CMake Files\"/>
 		</Unit>

@@ -101,9 +101,87 @@ FieldItem *Field::getItem(unsigned x, unsigned y){
 }
 
 Field &Field::operator=(const Field &field) {
-    return <#initializer#>;
+    if (&field == this)
+        return *this;
+    for (unsigned i = 0; i < width ; i++) {
+        for (unsigned j = 0; j < height; j++)
+            deleteItem(i, j);
+        delete [] items[i];
+    }
+    delete [] items;
+    items = new FieldItem**[width];
+    for (unsigned i = 0; i < width; i++) {
+        items[i] = new FieldItem*[height];
+        for (unsigned j = 0; j< height; j++)
+            items[i][j] = nullptr;
+    }
+    for (unsigned i=0; i<width; i++){
+        for (unsigned j=0; j<height; j++){
+            if (field.items[i][j] != nullptr){
+                items[i][j] = field.items[i][j]->itemCopy();
+                //page 6
+            }
+        }
+    }
+    return *this;
 }
 
 Field &Field::operator=(Field &&field) {
-    return <#initializer#>;
+    if (&field == this)
+        return *this;
+    for (unsigned i = 0; i < width; i++){
+        for (unsigned j = 0; j < height; j++)
+            deleteItem(i, j);
+        delete [] items[i];
+    }
+    items = new FieldItem**[width];
+    for (unsigned i = 0; i < width; i++){
+        items[i] = new FieldItem*[height];
+        for (unsigned j = 0; j < height; j++)
+        {
+            items[i][j] = field.items[i][j];
+            field.items[i][j] = nullptr;
+        }
+    }
+    return *this;
+}
+
+std::string Field::getShortInfo() {
+    std::string output = "";
+    for (unsigned i=0; i<width; i++)
+    {
+        for (unsigned j=0; j<height; j++)
+        {
+            if (items[i][j] != nullptr)
+                output += items[i][j]->shortName() + "\t";
+            else
+                output += "empty\t";
+        }
+        output += "\n";
+    }
+    return output;
+}
+
+bool Field::moveItem(FieldItem *item, int x, int y) {
+    int iwidth = static_cast<int>(width);
+    int iheight = static_cast<int>(height);
+    for (int i=0; i<iwidth; i++)
+        for (int j=0; j<iheight; j++)
+        {
+            if (items[i][j] == item)
+            {
+                if (x+i >= iwidth || y+j >= iheight || x+i < 0 || y+j < 0)
+                    return false;
+                if (items[x+i][y+j] != nullptr || item->isMovable() == 0)
+                    return false;
+                items[x+i][y+j] = items[i][j];
+                items[i][j] = nullptr;
+                return true;
+            }
+        }
+    throw std::invalid_argument("no such item on field");
+}
+
+void Field::setItemLimit(const unsigned &value) {
+    itemLimit = value;
 }

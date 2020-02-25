@@ -29,6 +29,9 @@ public:
     bool addItem(unsigned x, unsigned y, FieldItem *item);
     bool deleteItem(unsigned x, unsigned y);
     bool deleteItem(FieldItem *item);
+    bool moveItem(FieldItem *item, int x, int y);
+    std::string getShortInfo();
+    void setItemLimit(const unsigned &value);
     FieldItem *getItem(unsigned x, unsigned y);
     Field &operator=(const Field &field);
     Field &operator=(Field &&field);
@@ -47,31 +50,13 @@ private:
 
 class FieldIterator; // todo
 
-class Unit: public FieldItem{
-protected:
-    unsigned healh;
-    unsigned defence;
-    unsigned damage;
-};
-
-class Melee{
-
-};
-
-class Range{
-
-};
-
-class Special{
-
-};
 
 
 
 /*
  * range  dryad(heal)   witch
- * melee  ork      golem
- * special dragon  griffin
+ * melee   golem       ork
+ * special griffin   dragon
  *
  * */
 

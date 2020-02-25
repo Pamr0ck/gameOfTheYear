@@ -6,6 +6,7 @@ set(CMAKE_DEPENDS_LANGUAGES
 set(CMAKE_DEPENDS_CHECK_CXX
   "/home/kot/ETU/gameOfTheYear/field.cpp" "/home/kot/ETU/gameOfTheYear/cmake-build-debug/CMakeFiles/gameOfTheYear.dir/field.cpp.o"
   "/home/kot/ETU/gameOfTheYear/main.cpp" "/home/kot/ETU/gameOfTheYear/cmake-build-debug/CMakeFiles/gameOfTheYear.dir/main.cpp.o"
+  "/home/kot/ETU/gameOfTheYear/unit.cpp" "/home/kot/ETU/gameOfTheYear/cmake-build-debug/CMakeFiles/gameOfTheYear.dir/unit.cpp.o"
   )
 set(CMAKE_CXX_COMPILER_ID "GNU")
 
