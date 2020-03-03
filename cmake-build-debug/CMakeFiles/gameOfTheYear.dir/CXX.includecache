@@ -1,0 +1,14 @@
+#IncludeRegexLine: ^[ 	]*[#%][ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+
+#IncludeRegexScan: ^.*$
+
+#IncludeRegexComplain: ^$
+
+#IncludeRegexTransform: 
+
+/home/kot/ETU/gameOfTheYear/сharacteristics.cpp
+сharacteristics.h
+/home/kot/ETU/gameOfTheYear/сharacteristics.h
+
+/home/kot/ETU/gameOfTheYear/сharacteristics.h
+

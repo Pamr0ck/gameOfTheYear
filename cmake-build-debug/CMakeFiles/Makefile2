@@ -74,12 +74,12 @@ preinstall:
 CMakeFiles/gameOfTheYear.dir/all:
 	$(MAKE) -f CMakeFiles/gameOfTheYear.dir/build.make CMakeFiles/gameOfTheYear.dir/depend
 	$(MAKE) -f CMakeFiles/gameOfTheYear.dir/build.make CMakeFiles/gameOfTheYear.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/kot/ETU/gameOfTheYear/cmake-build-debug/CMakeFiles --progress-num=1,2,3,4 "Built target gameOfTheYear"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/kot/ETU/gameOfTheYear/cmake-build-debug/CMakeFiles --progress-num=1,2,3,4,5 "Built target gameOfTheYear"
 .PHONY : CMakeFiles/gameOfTheYear.dir/all
 
 # Build rule for subdir invocation for target.
 CMakeFiles/gameOfTheYear.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/kot/ETU/gameOfTheYear/cmake-build-debug/CMakeFiles 4
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/kot/ETU/gameOfTheYear/cmake-build-debug/CMakeFiles 5
 	$(MAKE) -f CMakeFiles/Makefile2 CMakeFiles/gameOfTheYear.dir/all
 	$(CMAKE_COMMAND) -E cmake_progress_start /home/kot/ETU/gameOfTheYear/cmake-build-debug/CMakeFiles 0
 .PHONY : CMakeFiles/gameOfTheYear.dir/rule

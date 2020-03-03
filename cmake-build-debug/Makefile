@@ -123,6 +123,33 @@ gameOfTheYear/fast:
 	$(MAKE) -f CMakeFiles/gameOfTheYear.dir/build.make CMakeFiles/gameOfTheYear.dir/build
 .PHONY : gameOfTheYear/fast
 
+characteristics.o: characteristics.cpp.o
+
+.PHONY : characteristics.o
+
+# target to build an object file
+characteristics.cpp.o:
+	$(MAKE) -f CMakeFiles/gameOfTheYear.dir/build.make CMakeFiles/gameOfTheYear.dir/characteristics.cpp.o
+.PHONY : characteristics.cpp.o
+
+characteristics.i: characteristics.cpp.i
+
+.PHONY : characteristics.i
+
+# target to preprocess a source file
+characteristics.cpp.i:
+	$(MAKE) -f CMakeFiles/gameOfTheYear.dir/build.make CMakeFiles/gameOfTheYear.dir/characteristics.cpp.i
+.PHONY : characteristics.cpp.i
+
+characteristics.s: characteristics.cpp.s
+
+.PHONY : characteristics.s
+
+# target to generate assembly for a file
+characteristics.cpp.s:
+	$(MAKE) -f CMakeFiles/gameOfTheYear.dir/build.make CMakeFiles/gameOfTheYear.dir/characteristics.cpp.s
+.PHONY : characteristics.cpp.s
+
 field.o: field.cpp.o
 
 .PHONY : field.o
@@ -213,6 +240,9 @@ help:
 	@echo "... rebuild_cache"
 	@echo "... gameOfTheYear"
 	@echo "... edit_cache"
+	@echo "... characteristics.o"
+	@echo "... characteristics.i"
+	@echo "... characteristics.s"
 	@echo "... field.o"
 	@echo "... field.i"
 	@echo "... field.s"

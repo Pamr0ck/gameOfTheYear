@@ -3,4 +3,4 @@ project(gameOfTheYear)
 
 set(CMAKE_CXX_STANDARD 20)
 
-add_executable(gameOfTheYear main.cpp field.h field.cpp libraries.h unit.cpp unit.h)
+add_executable(gameOfTheYear main.cpp field.h field.cpp libraries.h unit.cpp unit.h characteristics.cpp characteristics.h)
