@@ -4,10 +4,10 @@ set(CMAKE_DEPENDS_LANGUAGES
   )
 # The set of files for implicit dependencies of each language:
 set(CMAKE_DEPENDS_CHECK_CXX
-  "/home/kot/ETU/gameOfTheYear/characteristics.cpp" "/home/kot/ETU/gameOfTheYear/cmake-build-debug/CMakeFiles/gameOfTheYear.dir/characteristics.cpp.o"
-  "/home/kot/ETU/gameOfTheYear/field.cpp" "/home/kot/ETU/gameOfTheYear/cmake-build-debug/CMakeFiles/gameOfTheYear.dir/field.cpp.o"
-  "/home/kot/ETU/gameOfTheYear/main.cpp" "/home/kot/ETU/gameOfTheYear/cmake-build-debug/CMakeFiles/gameOfTheYear.dir/main.cpp.o"
-  "/home/kot/ETU/gameOfTheYear/unit.cpp" "/home/kot/ETU/gameOfTheYear/cmake-build-debug/CMakeFiles/gameOfTheYear.dir/unit.cpp.o"
+  "/home/kot/ETU/OOP/gameOfTheYear/characteristics.cpp" "/home/kot/ETU/OOP/gameOfTheYear/cmake-build-debug/CMakeFiles/gameOfTheYear.dir/characteristics.cpp.o"
+  "/home/kot/ETU/OOP/gameOfTheYear/field.cpp" "/home/kot/ETU/OOP/gameOfTheYear/cmake-build-debug/CMakeFiles/gameOfTheYear.dir/field.cpp.o"
+  "/home/kot/ETU/OOP/gameOfTheYear/main.cpp" "/home/kot/ETU/OOP/gameOfTheYear/cmake-build-debug/CMakeFiles/gameOfTheYear.dir/main.cpp.o"
+  "/home/kot/ETU/OOP/gameOfTheYear/unit.cpp" "/home/kot/ETU/OOP/gameOfTheYear/cmake-build-debug/CMakeFiles/gameOfTheYear.dir/unit.cpp.o"
   )
 set(CMAKE_CXX_COMPILER_ID "GNU")
 

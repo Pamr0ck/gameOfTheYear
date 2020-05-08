@@ -1,5 +1,5 @@
 //#include "battlefield.h"
-#include <QApplication>
+//#include <QApplication>
 #include "field.h"
 #include "unit.h"
 /*
