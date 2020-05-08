@@ -82,6 +82,30 @@
 				</MakeCommands>
 			</Target>
 		</Build>
+		<Unit filename="/home/kot/ETU/OOP/gameOfTheYear/Units/Dire/chimera.h">
+			<Option target="gameOfTheYear"/>
+		</Unit>
+		<Unit filename="/home/kot/ETU/OOP/gameOfTheYear/Units/Dire/dire.h">
+			<Option target="gameOfTheYear"/>
+		</Unit>
+		<Unit filename="/home/kot/ETU/OOP/gameOfTheYear/Units/Dire/ork.h">
+			<Option target="gameOfTheYear"/>
+		</Unit>
+		<Unit filename="/home/kot/ETU/OOP/gameOfTheYear/Units/Dire/witch.h">
+			<Option target="gameOfTheYear"/>
+		</Unit>
+		<Unit filename="/home/kot/ETU/OOP/gameOfTheYear/Units/Radiant/dragon.h">
+			<Option target="gameOfTheYear"/>
+		</Unit>
+		<Unit filename="/home/kot/ETU/OOP/gameOfTheYear/Units/Radiant/dryad.h">
+			<Option target="gameOfTheYear"/>
+		</Unit>
+		<Unit filename="/home/kot/ETU/OOP/gameOfTheYear/Units/Radiant/knight.h">
+			<Option target="gameOfTheYear"/>
+		</Unit>
+		<Unit filename="/home/kot/ETU/OOP/gameOfTheYear/Units/Radiant/radiant.h">
+			<Option target="gameOfTheYear"/>
+		</Unit>
 		<Unit filename="/home/kot/ETU/OOP/gameOfTheYear/characteristics.cpp">
 			<Option target="gameOfTheYear"/>
 		</Unit>
@@ -98,6 +122,18 @@
 			<Option target="gameOfTheYear"/>
 		</Unit>
 		<Unit filename="/home/kot/ETU/OOP/gameOfTheYear/main.cpp">
+			<Option target="gameOfTheYear"/>
+		</Unit>
+		<Unit filename="/home/kot/ETU/OOP/gameOfTheYear/moveMediator.h">
+			<Option target="gameOfTheYear"/>
+		</Unit>
+		<Unit filename="/home/kot/ETU/OOP/gameOfTheYear/observer.h">
+			<Option target="gameOfTheYear"/>
+		</Unit>
+		<Unit filename="/home/kot/ETU/OOP/gameOfTheYear/subject.cpp">
+			<Option target="gameOfTheYear"/>
+		</Unit>
+		<Unit filename="/home/kot/ETU/OOP/gameOfTheYear/subject.h">
 			<Option target="gameOfTheYear"/>
 		</Unit>
 		<Unit filename="/home/kot/ETU/OOP/gameOfTheYear/unit.cpp">

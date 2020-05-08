@@ -6,6 +6,10 @@
 
 #IncludeRegexTransform: 
 
+/home/kot/ETU/OOP/gameOfTheYear/base.h
+unit.h
+/home/kot/ETU/OOP/gameOfTheYear/unit.h
+
 /home/kot/ETU/OOP/gameOfTheYear/characteristics.h
 
 /home/kot/ETU/OOP/gameOfTheYear/field.h
@@ -23,6 +27,8 @@ field.h
 /home/kot/ETU/OOP/gameOfTheYear/field.h
 unit.h
 /home/kot/ETU/OOP/gameOfTheYear/unit.h
+base.h
+/home/kot/ETU/OOP/gameOfTheYear/base.h
 
 /home/kot/ETU/OOP/gameOfTheYear/unit.h
 field.h

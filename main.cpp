@@ -2,6 +2,7 @@
 //#include <QApplication>
 #include "field.h"
 #include "unit.h"
+#include "base.h"
 /*
  * объяснить virtual = 0;
 const  создание +
@@ -67,14 +68,32 @@ void test1(){
 }
 
 void test2(){
-    UnitFactory * melee = new MeleeFactory;
-    UnitFactory * support = new SupportFactory;
-    UnitFactory * range = new RangeFactory;
     Field field(10,10,100);
+    auto base = new Base(&field);
+    field.addItem(3, 6, base);
 
+    for(unsigned int i = 0; i < 10; i++){
+            for(unsigned int j = 0; j < 10; j++){
+                if((j*i) % 3 == 1){
+                    Proxy* landsc = new Proxy("D");
+                    field.addLand(i, j, landsc);
+                }
+                else if ((j*i) % 2 == 0) {
+                    Proxy* landsc = new Proxy("R");
+                    field.addLand(i, j, landsc);
+                }
+                else {
+                    Proxy* landsc = new Proxy("F");
+                    field.addLand(i, j, landsc);
+                }
+            }
+        }
+    std::cout << field.getShortInfo() << std::endl;
+
+/*
     for(auto i =0; i<10; i++){
         for(auto j = 0; j<10; j++){
-            switch ((i+j)%6) {
+            switch ((i+j)%10) {
             case 0:
                 field.addItem(i,j,melee->createDire());
                 break;
@@ -97,20 +116,28 @@ void test2(){
             }
         }
     }
+*/
+//    for (FieldIterator i(&field); i.isActive();++i){
+//        std::cout << i->about() << std::endl;
+//    }
 
-    for (FieldIterator i(&field); i.isActive();++i){
-        std::cout << i->about() << std::endl;
-    }
+
+//    auto *b1= melee->createDire();
+    auto b1 = base->addOrk(0,1);
+    base->addWitch(5,8);
+    base->addChimera(4,6);
+    base->addDragon(2,6);
+    base->addKnight(3,5);
+    base->addKnight(3,7);
+//    base->field->deleteItem(3,6);
+//    field.addItem(0,0,b1);
     std::cout << field.getShortInfo() << std::endl;
-    std::cout << "Item counter for field1: " << field.getItemCounter() << std::endl;
-    std::cout <<"Coppy field and delete median elements" <<std::endl;
-    Field field2 = field;
-    for (auto  i = 0; i<10; i++){
-        field2.deleteItem(i,i);
-    }
-
-    std::cout << field2.getShortInfo() << std::endl;
-    std::cout << "Item counter for field2: " << field2.getItemCounter() << std::endl;
+    b1->move(3,3);
+    std::cout << field.getShortInfo() << std::endl;
+//    Field field2 = field;
+    base->deleteUnit(b1);
+    std::cout << field.getShortInfo() << std::endl;
+    std::cout << "Item counter for field near base: " << base->getItemCounter() << std::endl;
 }
 
 

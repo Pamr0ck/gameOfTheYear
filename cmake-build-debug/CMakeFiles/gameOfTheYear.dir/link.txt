@@ -1,1 +1,1 @@
-/usr/bin/c++  -g   CMakeFiles/gameOfTheYear.dir/main.cpp.o CMakeFiles/gameOfTheYear.dir/field.cpp.o CMakeFiles/gameOfTheYear.dir/unit.cpp.o CMakeFiles/gameOfTheYear.dir/characteristics.cpp.o  -o gameOfTheYear 
+/usr/bin/c++  -g   CMakeFiles/gameOfTheYear.dir/main.cpp.o CMakeFiles/gameOfTheYear.dir/field.cpp.o CMakeFiles/gameOfTheYear.dir/unit.cpp.o CMakeFiles/gameOfTheYear.dir/characteristics.cpp.o CMakeFiles/gameOfTheYear.dir/subject.cpp.o  -o gameOfTheYear 

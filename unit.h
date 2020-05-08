@@ -7,99 +7,45 @@
 
 #include "field.h"
 #include "characteristics.h"
+#include "moveMediator.h"
+#include "subject.h"
 
+//class IObserver : public FieldItem
+//{
+//public:
+////    virtual void deleteUnit(FieldItem* obj) = 0;
+//};
 
-class Unit : public FieldItem
+class Unit : public Subject
 {
 public:
-    Unit() {}
-    Unit(Unit &unit);
+    Unit(){}
+    Unit(Unit&);
+    virtual ~Unit();
 
-    virtual ~Unit() {
-        delete moveMediator;
-    }
+    virtual bool isMovable();
 
-    virtual bool isMovable() {
-       return movable;
-    }
-    virtual std::string shortName() = 0;
+    virtual std::string getName() = 0;
     virtual std::string about();
-    virtual FieldItem *itemCopy() = 0;
-    virtual void setMoveMediator(MoveMediator *value);
 
-    virtual void move(int x, int y);
+    virtual Unit* itemCopy() = 0;
+
+    virtual void setMoveMediator(MoveMediator*);
+
+    virtual void move(int, int);
+
+    std::string getType() const;
+
+    void setHealth(int);
+    void setDamage(int);
+    void setArmor(int);
+
 
 protected:
     std::string name;
     bool movable = true;
-    Characteristics naturalStats;
-    MoveMediator *moveMediator = nullptr;
-};
-
-class Radiant : public Unit{
-public:
-    virtual FieldItem *itemCopy() = 0;
-};
-
-class Knight : public Radiant{
-public:
-    Knight();
-    std::string shortName() {return "Knight";}
-    FieldItem *itemCopy(){
-        return new Knight(*this);
-    }
-};
-
-class Dryad : public Radiant{
-public:
-    // todo heal if health < 10 % every 3th turn  on 30% of hp
-    Dryad();
-    std::string shortName() {return "Dryad";}
-    FieldItem *itemCopy(){
-        return new Dryad(*this);
-    }
-};
-
-class Dragon : public Radiant{
-public:
-    Dragon();
-    std::string shortName() {return "Dragon";}
-    FieldItem *itemCopy(){
-        return new Dragon(*this);
-    }
-};
-
-class Dire : public Unit {
-public:
-    virtual FieldItem *itemCopy() = 0;
-};
-
-class Ork : public Dire {
-public:
-    Ork();
-    std::string shortName() {return "Ork";}
-    FieldItem *itemCopy(){
-        return new Ork(*this);
-    }
-};
-
-class Witch : public Dire {
-    // support 2 death and  all_char/3 orks
-public:
-    Witch();
-    std::string shortName() {return "Witch";}
-    FieldItem *itemCopy(){
-        return new Witch(*this);
-    }
-};
-
-class Chimera : public Dire {
-public:
-    Chimera();
-    std::string shortName() {return "Chimera";}
-    FieldItem *itemCopy(){
-        return new Chimera(*this);
-    }
+    Characteristics* characteristics;
+    MoveMediator* moveMediator;
 };
 
 class UnitFactory {

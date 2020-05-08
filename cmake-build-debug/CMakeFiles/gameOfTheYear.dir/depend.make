@@ -8,6 +8,7 @@ CMakeFiles/gameOfTheYear.dir/field.cpp.o: ../field.cpp
 CMakeFiles/gameOfTheYear.dir/field.cpp.o: ../field.h
 CMakeFiles/gameOfTheYear.dir/field.cpp.o: ../libraries.h
 
+CMakeFiles/gameOfTheYear.dir/main.cpp.o: ../base.h
 CMakeFiles/gameOfTheYear.dir/main.cpp.o: ../characteristics.h
 CMakeFiles/gameOfTheYear.dir/main.cpp.o: ../field.h
 CMakeFiles/gameOfTheYear.dir/main.cpp.o: ../libraries.h

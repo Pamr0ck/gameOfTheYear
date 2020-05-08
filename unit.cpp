@@ -5,20 +5,26 @@
 #include "unit.h"
 
 Unit::Unit(Unit &unit):
-    name(unit.name), movable(unit.movable),
-    naturalStats(unit.naturalStats), moveMediator(nullptr){}
+        name(unit.name), movable(unit.movable),
+        characteristics(unit.characteristics), moveMediator(nullptr){}
+
+Unit::~Unit()
+{
+    delete moveMediator;
+}
+
+bool Unit::isMovable () {
+    return movable;
+}
 
 std::string Unit::about()
 {
     std::string output;
-    output += shortName() + "\n";
-    output += this->name + "\nCharacteristics:";
-    output += "\nHealth: " + std::to_string(naturalStats.getHealth()) +
-              "\nDamage: " + std::to_string(naturalStats.getDamage()) +
-              "\nArmor: " + std::to_string(naturalStats.getArmor()) +
-              "\nStrength: " + std::to_string(naturalStats.getStrength()) +
-              "\nAgility: " + std::to_string(naturalStats.getAgility()) +
-              "\nIntelligent: " + std::to_string(naturalStats.getIntelligence());
+    output += getName();
+    output += "\nCharacteristics:";
+    output += "\nHealth: " + std::to_string(characteristics->getHealth()) +
+              "\nDamage: " + std::to_string(characteristics->getDamage()) +
+              "\nArmor: " + std::to_string(characteristics->getArmor());
     return output+"\n";
 }
 
@@ -27,36 +33,34 @@ void Unit::setMoveMediator(MoveMediator *value)
     moveMediator = value;
 }
 
-Knight::Knight(){
-    name = "Zinaid, protector of your King";
-    naturalStats.setAll(50,20,15);
+void Unit::move(int x, int y)
+{
+    moveMediator->movObj(this, x, y);
 }
 
-Ork::Ork(){
-    name = "Sasha, big but not smart Ork";
-    naturalStats.setAll(60,15,5);
+std::string Unit::getType () const
+{
+    return "unit";
 }
 
-Dryad::Dryad(){
-    name = "Grafinya, Defender of the nature";
-    naturalStats.setAll(20,40,45);
+void Unit::setHealth (int val)
+{
+    characteristics->setHealth(val);
 }
 
-Witch::Witch(){
-    name = "Alena, she's never alone";
-    naturalStats.setAll(15,35,60);
+void Unit::setDamage (int val)
+{
+    characteristics->setDamage(val);
 }
+
+void Unit::setArmor (int val)
+{
+    characteristics->setArmor(val);
+}
+
+
 
 Dragon::Dragon(){
-    name = "Druzhok, The richest being in the world";
-    naturalStats.setAll(120,10,90);
+
 }
 
-Chimera::Chimera(){
-    name = "Myaus, So toxic and danger";
-    naturalStats.setAll(100,80,50);
-}
-
-void Unit::move(int x, int y){
-    moveMediator->notify(this, x, y);
-}

@@ -6,23 +6,18 @@
 #define CHARACTERISTICS_H
 
 
-class Characteristics {
+class Characteristics
+{
+private:
+    int health;
+    int damage;
+    int armor;   // 2
+    int stepLimits;
+
 public:
     Characteristics();
 
-    void setAll(int strength, int agility, int intelligence,
-            int health, int damage, int armor, int stepLimits);
-
-    void setAll(int strength, int agility, int intelligence);
-
-    int getStrength() const;
-    void setStrength(int value);
-
-    int getAgility() const;
-    void setAgility(int value);
-
-    int getIntelligence() const;
-    void setIntelligence(int value);
+    void setAll(int health, int damage, int armor, int stepLimits=2);
 
     int getHealth() const;
     void setHealth(int value);
@@ -35,17 +30,6 @@ public:
 
     int getStepLimits() const;
     void setStepLimits(int value);
-
-
-private:
-    int strength;
-    int agility;
-    int intelligence;
-    int health;
-    int damage;
-    int armor;   // 2
-    int stepLimits;
-
 };
 
 

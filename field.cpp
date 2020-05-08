@@ -16,6 +16,13 @@ Field::Field(unsigned width, unsigned height, unsigned itemLimit)
             items[i][j] = nullptr;
         }
     }
+    land = new Proxy **[width];
+    for (unsigned i = 0; i < width; i++) {
+        land[i] = new Proxy *[height];
+        for (unsigned j = 0; j < height; j++) {
+            land[i][j] = nullptr;
+        }
+    }
 }
 
 Field::Field(const Field &field)
@@ -29,10 +36,20 @@ itemCounter(field.itemCounter){
             items[i][j] = nullptr;
         }
     }
+//    land = new Proxy **[width];
+//    for (unsigned i = 0; i < width; i++) {
+//        land[i] = new Proxy *[height];
+//        for (unsigned j = 0; j < height; j++) {
+//            land[i][j] = nullptr;
+//        }
+//    }
+
+
     for (unsigned i = 0; i < width; i++){
         for (unsigned j = 0; j < height; j++) {
             if (field.items[i][j] != nullptr){
                 items[i][j] = field.items[i][j]->itemCopy();
+//                land[i][j] = field.land[i][j];
                 new MoveMediator(this, items[i][j]);
             }
         }
@@ -166,6 +183,11 @@ Field &Field::operator=(Field &&field) {
     return *this;
 }
 
+void Field::addLand(unsigned x, unsigned y, Proxy *landscape)
+{
+    land[x][y] = landscape;
+}
+
 std::string Field::getShortInfo() {
     std::string output = "";
     for (unsigned i=0; i<width; i++)
@@ -175,7 +197,7 @@ std::string Field::getShortInfo() {
             if (items[i][j] != nullptr)
                 output += items[i][j]->shortName() + "\t";
             else
-                output += "*****\t";
+                output += land[i][j]->getType() + "\t";
         }
         output += "\n";
     }
@@ -197,9 +219,13 @@ bool Field::moveItem(FieldItem *item, int x, int y) {
                     std::cout << "this field is buzy\n";
                     return false;
                 }
-                items[x+i][y+j] = items[i][j];
-                items[i][j] = nullptr;
-                return true;
+                if(land[x+i][y+j]->checkMoveAccess(items[i][j]->shortName()))
+                {
+                    items[x+i][y+j] = items[i][j];
+                    items[i][j] = nullptr;
+                    return true;
+                }
+                else return false;
             }
         }
     throw std::invalid_argument("no such item on field");
@@ -223,7 +249,7 @@ void Field::setMoveMediator(MoveMediator *value)
     moveMediator = value;
 }
 
-FieldIterator::FieldIterator(Field *field)
+FieldIterator::FieldIterator(const Field *field)
     : active(true), field(field), curWidth(0), curHeight(0){
     if (field->getItem(curWidth, curHeight) == nullptr)
         this->operator++();

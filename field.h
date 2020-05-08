@@ -6,6 +6,7 @@
 #define FIELD_H
 
 #include "libraries.h"
+#include "land.h"
 
 class Field;
 class MoveMediator;
@@ -43,6 +44,8 @@ public:
     Field &operator=(const Field &field);
     Field &operator=(Field &&field);
 
+    void addLand(unsigned x, unsigned y, Proxy *landscape);
+
     ~Field();
 
 private:
@@ -51,6 +54,7 @@ private:
     const unsigned itemLimit;
     unsigned itemCounter;
     FieldItem ***items;
+    Proxy*** land;
     MoveMediator *moveMediator;
 
 };
@@ -59,7 +63,7 @@ private:
 class FieldIterator
 {
 public:
-    FieldIterator(Field *field);
+    FieldIterator( const Field *field);
     bool isActive() const;
     FieldItem *operator->() const;
     FieldItem *operator++();
@@ -71,13 +75,5 @@ private:
     unsigned curHeight;
 };
 
-class MoveMediator{
-public:
-    MoveMediator(Field *field, FieldItem *item);
-    void notify(FieldItem *sender, int x, int y);
-private:
-    Field *field;
-    FieldItem *item;
-};
 
 #endif //FIELD_H

@@ -204,6 +204,33 @@ main.cpp.s:
 	$(MAKE) -f CMakeFiles/gameOfTheYear.dir/build.make CMakeFiles/gameOfTheYear.dir/main.cpp.s
 .PHONY : main.cpp.s
 
+subject.o: subject.cpp.o
+
+.PHONY : subject.o
+
+# target to build an object file
+subject.cpp.o:
+	$(MAKE) -f CMakeFiles/gameOfTheYear.dir/build.make CMakeFiles/gameOfTheYear.dir/subject.cpp.o
+.PHONY : subject.cpp.o
+
+subject.i: subject.cpp.i
+
+.PHONY : subject.i
+
+# target to preprocess a source file
+subject.cpp.i:
+	$(MAKE) -f CMakeFiles/gameOfTheYear.dir/build.make CMakeFiles/gameOfTheYear.dir/subject.cpp.i
+.PHONY : subject.cpp.i
+
+subject.s: subject.cpp.s
+
+.PHONY : subject.s
+
+# target to generate assembly for a file
+subject.cpp.s:
+	$(MAKE) -f CMakeFiles/gameOfTheYear.dir/build.make CMakeFiles/gameOfTheYear.dir/subject.cpp.s
+.PHONY : subject.cpp.s
+
 unit.o: unit.cpp.o
 
 .PHONY : unit.o
@@ -249,6 +276,9 @@ help:
 	@echo "... main.o"
 	@echo "... main.i"
 	@echo "... main.s"
+	@echo "... subject.o"
+	@echo "... subject.i"
+	@echo "... subject.s"
 	@echo "... unit.o"
 	@echo "... unit.i"
 	@echo "... unit.s"
