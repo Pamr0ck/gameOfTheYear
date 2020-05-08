@@ -1,54 +1,55 @@
-#ifndef LAND_H
-#define LAND_H
+#ifndef LANDSCAPE_H
+#define LANDSCAPE_H
 
-#include "libraries.h"
+#include <iostream>
 
-class Land
+class Landscape
 {
 public:
     virtual std::string getType() const = 0;
-//    virtual Land *itemCopy() = 0;
+    virtual bool canMove() = 0;
+    virtual bool canAttack() = 0;
 };
 
-class River : public Land
+class River : public Landscape
 {
 protected:
     std::string type = "R";
 public:
     std::string getType() const;
-//    Land * itemCopy(){
+//    Landscape * itemCopy(){
 //        return new River(*this);
 //    }
 };
 
-class Forest : public Land
+class Forest : public Landscape
 {
 protected:
     std::string type = "F";
 public:
     std::string getType() const;
-//    Land * itemCopy(){
+//    Landscape * itemCopy(){
 //        return new Forest(*this);
 //    }
 };
 
 
-class Desert : public Land
+class Desert : public Landscape
 {
 protected:
     std::string type = "D";
 public:
     std::string getType() const;
-//    Land * itemCopy(){
+//    Landscape * itemCopy(){
 //        return new Desert(*this);
 //    }
 };
 
 
-class Proxy : public Land
+class Proxy : public Landscape
 {
 private:
-    Land* landscape;
+    Landscape* landscape;
 
 public:
     Proxy(std::string type);
@@ -59,4 +60,4 @@ public:
 
 
 
-#endif // LAND_H
+#endif // LANDSCAPE_H

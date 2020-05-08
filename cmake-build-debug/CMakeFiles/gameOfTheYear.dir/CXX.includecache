@@ -6,13 +6,41 @@
 
 #IncludeRegexTransform: 
 
-/home/kot/ETU/OOP/gameOfTheYear/base.h
+/home/kot/ETU/OOP/gameOfTheYear/Units/unit.cpp
 unit.h
-/home/kot/ETU/OOP/gameOfTheYear/unit.h
+/home/kot/ETU/OOP/gameOfTheYear/Units/unit.h
+
+/home/kot/ETU/OOP/gameOfTheYear/Units/unit.h
+../field.h
+/home/kot/ETU/OOP/gameOfTheYear/field.h
+../characteristics.h
+/home/kot/ETU/OOP/gameOfTheYear/characteristics.h
+../moveMediator.h
+/home/kot/ETU/OOP/gameOfTheYear/moveMediator.h
+../subject.h
+/home/kot/ETU/OOP/gameOfTheYear/subject.h
+
+/home/kot/ETU/OOP/gameOfTheYear/base.h
+Units/unit.h
+/home/kot/ETU/OOP/gameOfTheYear/Units/unit.h
+
+/home/kot/ETU/OOP/gameOfTheYear/characteristics.cpp
+characteristics.h
+/home/kot/ETU/OOP/gameOfTheYear/characteristics.h
 
 /home/kot/ETU/OOP/gameOfTheYear/characteristics.h
 
+/home/kot/ETU/OOP/gameOfTheYear/field.cpp
+field.h
 /home/kot/ETU/OOP/gameOfTheYear/field.h
+
+/home/kot/ETU/OOP/gameOfTheYear/field.h
+libraries.h
+/home/kot/ETU/OOP/gameOfTheYear/libraries.h
+land.h
+/home/kot/ETU/OOP/gameOfTheYear/land.h
+
+/home/kot/ETU/OOP/gameOfTheYear/land.h
 libraries.h
 /home/kot/ETU/OOP/gameOfTheYear/libraries.h
 
@@ -25,14 +53,22 @@ string
 /home/kot/ETU/OOP/gameOfTheYear/main.cpp
 field.h
 /home/kot/ETU/OOP/gameOfTheYear/field.h
-unit.h
-/home/kot/ETU/OOP/gameOfTheYear/unit.h
+Units/unit.h
+/home/kot/ETU/OOP/gameOfTheYear/Units/unit.h
 base.h
 /home/kot/ETU/OOP/gameOfTheYear/base.h
 
-/home/kot/ETU/OOP/gameOfTheYear/unit.h
-field.h
-/home/kot/ETU/OOP/gameOfTheYear/field.h
-characteristics.h
-/home/kot/ETU/OOP/gameOfTheYear/characteristics.h
+/home/kot/ETU/OOP/gameOfTheYear/moveMediator.h
+
+/home/kot/ETU/OOP/gameOfTheYear/observer.h
+
+/home/kot/ETU/OOP/gameOfTheYear/subject.cpp
+subject.h
+/home/kot/ETU/OOP/gameOfTheYear/subject.h
+
+/home/kot/ETU/OOP/gameOfTheYear/subject.h
+vector
+-
+observer.h
+/home/kot/ETU/OOP/gameOfTheYear/observer.h
 

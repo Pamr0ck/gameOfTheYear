@@ -4,9 +4,9 @@
 
 #ifndef DRAGON_H
 #define DRAGON_H
-#include "radiant.h"
+#include "range.h"
 
-class Dragon : public Radiant{
+class Dragon : public Range{
 public:
     Dragon()
     {

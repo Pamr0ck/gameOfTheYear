@@ -82,28 +82,46 @@
 				</MakeCommands>
 			</Target>
 		</Build>
-		<Unit filename="/home/kot/ETU/OOP/gameOfTheYear/Units/Dire/chimera.h">
+		<Unit filename="/home/kot/ETU/OOP/gameOfTheYear/Units/Factory/direFactory.h">
 			<Option target="gameOfTheYear"/>
 		</Unit>
-		<Unit filename="/home/kot/ETU/OOP/gameOfTheYear/Units/Dire/dire.h">
+		<Unit filename="/home/kot/ETU/OOP/gameOfTheYear/Units/Factory/radiantFactory.h">
 			<Option target="gameOfTheYear"/>
 		</Unit>
-		<Unit filename="/home/kot/ETU/OOP/gameOfTheYear/Units/Dire/ork.h">
+		<Unit filename="/home/kot/ETU/OOP/gameOfTheYear/Units/Factory/unitFactory.h">
 			<Option target="gameOfTheYear"/>
 		</Unit>
-		<Unit filename="/home/kot/ETU/OOP/gameOfTheYear/Units/Dire/witch.h">
+		<Unit filename="/home/kot/ETU/OOP/gameOfTheYear/Units/Melee/knight.h">
 			<Option target="gameOfTheYear"/>
 		</Unit>
-		<Unit filename="/home/kot/ETU/OOP/gameOfTheYear/Units/Radiant/dragon.h">
+		<Unit filename="/home/kot/ETU/OOP/gameOfTheYear/Units/Melee/melee.h">
 			<Option target="gameOfTheYear"/>
 		</Unit>
-		<Unit filename="/home/kot/ETU/OOP/gameOfTheYear/Units/Radiant/dryad.h">
+		<Unit filename="/home/kot/ETU/OOP/gameOfTheYear/Units/Melee/ork.h">
 			<Option target="gameOfTheYear"/>
 		</Unit>
-		<Unit filename="/home/kot/ETU/OOP/gameOfTheYear/Units/Radiant/knight.h">
+		<Unit filename="/home/kot/ETU/OOP/gameOfTheYear/Units/Range/chimera.h">
 			<Option target="gameOfTheYear"/>
 		</Unit>
-		<Unit filename="/home/kot/ETU/OOP/gameOfTheYear/Units/Radiant/radiant.h">
+		<Unit filename="/home/kot/ETU/OOP/gameOfTheYear/Units/Range/dragon.h">
+			<Option target="gameOfTheYear"/>
+		</Unit>
+		<Unit filename="/home/kot/ETU/OOP/gameOfTheYear/Units/Range/range.h">
+			<Option target="gameOfTheYear"/>
+		</Unit>
+		<Unit filename="/home/kot/ETU/OOP/gameOfTheYear/Units/Support/dryad.h">
+			<Option target="gameOfTheYear"/>
+		</Unit>
+		<Unit filename="/home/kot/ETU/OOP/gameOfTheYear/Units/Support/support.h">
+			<Option target="gameOfTheYear"/>
+		</Unit>
+		<Unit filename="/home/kot/ETU/OOP/gameOfTheYear/Units/Support/witch.h">
+			<Option target="gameOfTheYear"/>
+		</Unit>
+		<Unit filename="/home/kot/ETU/OOP/gameOfTheYear/Units/unit.cpp">
+			<Option target="gameOfTheYear"/>
+		</Unit>
+		<Unit filename="/home/kot/ETU/OOP/gameOfTheYear/Units/unit.h">
 			<Option target="gameOfTheYear"/>
 		</Unit>
 		<Unit filename="/home/kot/ETU/OOP/gameOfTheYear/characteristics.cpp">
@@ -134,12 +152,6 @@
 			<Option target="gameOfTheYear"/>
 		</Unit>
 		<Unit filename="/home/kot/ETU/OOP/gameOfTheYear/subject.h">
-			<Option target="gameOfTheYear"/>
-		</Unit>
-		<Unit filename="/home/kot/ETU/OOP/gameOfTheYear/unit.cpp">
-			<Option target="gameOfTheYear"/>
-		</Unit>
-		<Unit filename="/home/kot/ETU/OOP/gameOfTheYear/unit.h">
 			<Option target="gameOfTheYear"/>
 		</Unit>
 		<Unit filename="/home/kot/ETU/OOP/gameOfTheYear/CMakeLists.txt">

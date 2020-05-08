@@ -4,9 +4,9 @@
 
 #ifndef DRYAD_H
 #define DRYAD_H
-#include "radiant.h"
+#include "Support.h"
 
-class Dryad : public Radiant
+class Dryad : public Support
 {
 public:
     // todo heal if health < 10 % every 3th turn  on 30% of hp

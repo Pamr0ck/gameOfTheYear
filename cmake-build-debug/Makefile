@@ -123,6 +123,33 @@ gameOfTheYear/fast:
 	$(MAKE) -f CMakeFiles/gameOfTheYear.dir/build.make CMakeFiles/gameOfTheYear.dir/build
 .PHONY : gameOfTheYear/fast
 
+Units/unit.o: Units/unit.cpp.o
+
+.PHONY : Units/unit.o
+
+# target to build an object file
+Units/unit.cpp.o:
+	$(MAKE) -f CMakeFiles/gameOfTheYear.dir/build.make CMakeFiles/gameOfTheYear.dir/Units/unit.cpp.o
+.PHONY : Units/unit.cpp.o
+
+Units/unit.i: Units/unit.cpp.i
+
+.PHONY : Units/unit.i
+
+# target to preprocess a source file
+Units/unit.cpp.i:
+	$(MAKE) -f CMakeFiles/gameOfTheYear.dir/build.make CMakeFiles/gameOfTheYear.dir/Units/unit.cpp.i
+.PHONY : Units/unit.cpp.i
+
+Units/unit.s: Units/unit.cpp.s
+
+.PHONY : Units/unit.s
+
+# target to generate assembly for a file
+Units/unit.cpp.s:
+	$(MAKE) -f CMakeFiles/gameOfTheYear.dir/build.make CMakeFiles/gameOfTheYear.dir/Units/unit.cpp.s
+.PHONY : Units/unit.cpp.s
+
 characteristics.o: characteristics.cpp.o
 
 .PHONY : characteristics.o
@@ -231,33 +258,6 @@ subject.cpp.s:
 	$(MAKE) -f CMakeFiles/gameOfTheYear.dir/build.make CMakeFiles/gameOfTheYear.dir/subject.cpp.s
 .PHONY : subject.cpp.s
 
-unit.o: unit.cpp.o
-
-.PHONY : unit.o
-
-# target to build an object file
-unit.cpp.o:
-	$(MAKE) -f CMakeFiles/gameOfTheYear.dir/build.make CMakeFiles/gameOfTheYear.dir/unit.cpp.o
-.PHONY : unit.cpp.o
-
-unit.i: unit.cpp.i
-
-.PHONY : unit.i
-
-# target to preprocess a source file
-unit.cpp.i:
-	$(MAKE) -f CMakeFiles/gameOfTheYear.dir/build.make CMakeFiles/gameOfTheYear.dir/unit.cpp.i
-.PHONY : unit.cpp.i
-
-unit.s: unit.cpp.s
-
-.PHONY : unit.s
-
-# target to generate assembly for a file
-unit.cpp.s:
-	$(MAKE) -f CMakeFiles/gameOfTheYear.dir/build.make CMakeFiles/gameOfTheYear.dir/unit.cpp.s
-.PHONY : unit.cpp.s
-
 # Help Target
 help:
 	@echo "The following are some of the valid targets for this Makefile:"
@@ -267,6 +267,9 @@ help:
 	@echo "... rebuild_cache"
 	@echo "... edit_cache"
 	@echo "... gameOfTheYear"
+	@echo "... Units/unit.o"
+	@echo "... Units/unit.i"
+	@echo "... Units/unit.s"
 	@echo "... characteristics.o"
 	@echo "... characteristics.i"
 	@echo "... characteristics.s"
@@ -279,9 +282,6 @@ help:
 	@echo "... subject.o"
 	@echo "... subject.i"
 	@echo "... subject.s"
-	@echo "... unit.o"
-	@echo "... unit.i"
-	@echo "... unit.s"
 .PHONY : help
 
 

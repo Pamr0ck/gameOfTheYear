@@ -1,7 +1,6 @@
-//#include "battlefield.h"
 //#include <QApplication>
 #include "field.h"
-#include "unit.h"
+#include "Units/unit.h"
 #include "base.h"
 /*
  * объяснить virtual = 0;
@@ -143,9 +142,5 @@ void test2(){
 
 int main()
 {
-//    QApplication a(argc, argv);
-//    BattleField w;
-//    w.show();
-//    return a.exec();
     test2();
 }

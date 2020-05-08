@@ -5,10 +5,10 @@
 #ifndef UNIT_H
 #define UNIT_H
 
-#include "field.h"
-#include "characteristics.h"
-#include "moveMediator.h"
-#include "subject.h"
+#include "../field.h"
+#include "../characteristics.h"
+#include "../moveMediator.h"
+#include "../subject.h"
 
 //class IObserver : public FieldItem
 //{
@@ -47,42 +47,4 @@ protected:
     Characteristics* characteristics;
     MoveMediator* moveMediator;
 };
-
-class UnitFactory {
-public:
-    virtual Radiant *createRadiant() = 0;
-    virtual Dire *createDire() = 0;
-};
-
-class MeleeFactory : public UnitFactory {
-public:
-    Radiant * createRadiant(){
-        return new Knight();
-    }
-    Dire * createDire(){
-        return new Ork();
-    }
-};
-
-class SupportFactory : public UnitFactory {
-public:
-    Radiant * createRadiant(){
-        return new Dryad();
-    }
-    Dire * createDire(){
-        return new Witch();
-    }
-};
-
-class RangeFactory : public UnitFactory {
-public:
-    Radiant * createRadiant(){
-        return new Dragon();
-    }
-    Dire * createDire(){
-        return new Chimera();
-    }
-};
-
-
 #endif //UNIT_H

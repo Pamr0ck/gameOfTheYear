@@ -83,18 +83,18 @@ CMakeFiles/gameOfTheYear.dir/field.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/gameOfTheYear.dir/field.cpp.s"
 	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/kot/ETU/OOP/gameOfTheYear/field.cpp -o CMakeFiles/gameOfTheYear.dir/field.cpp.s
 
-CMakeFiles/gameOfTheYear.dir/unit.cpp.o: CMakeFiles/gameOfTheYear.dir/flags.make
-CMakeFiles/gameOfTheYear.dir/unit.cpp.o: ../unit.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/kot/ETU/OOP/gameOfTheYear/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Building CXX object CMakeFiles/gameOfTheYear.dir/unit.cpp.o"
-	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/gameOfTheYear.dir/unit.cpp.o -c /home/kot/ETU/OOP/gameOfTheYear/unit.cpp
+CMakeFiles/gameOfTheYear.dir/Units/unit.cpp.o: CMakeFiles/gameOfTheYear.dir/flags.make
+CMakeFiles/gameOfTheYear.dir/Units/unit.cpp.o: ../Units/unit.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/kot/ETU/OOP/gameOfTheYear/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Building CXX object CMakeFiles/gameOfTheYear.dir/Units/unit.cpp.o"
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/gameOfTheYear.dir/Units/unit.cpp.o -c /home/kot/ETU/OOP/gameOfTheYear/Units/unit.cpp
 
-CMakeFiles/gameOfTheYear.dir/unit.cpp.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/gameOfTheYear.dir/unit.cpp.i"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/kot/ETU/OOP/gameOfTheYear/unit.cpp > CMakeFiles/gameOfTheYear.dir/unit.cpp.i
+CMakeFiles/gameOfTheYear.dir/Units/unit.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/gameOfTheYear.dir/Units/unit.cpp.i"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/kot/ETU/OOP/gameOfTheYear/Units/unit.cpp > CMakeFiles/gameOfTheYear.dir/Units/unit.cpp.i
 
-CMakeFiles/gameOfTheYear.dir/unit.cpp.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/gameOfTheYear.dir/unit.cpp.s"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/kot/ETU/OOP/gameOfTheYear/unit.cpp -o CMakeFiles/gameOfTheYear.dir/unit.cpp.s
+CMakeFiles/gameOfTheYear.dir/Units/unit.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/gameOfTheYear.dir/Units/unit.cpp.s"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/kot/ETU/OOP/gameOfTheYear/Units/unit.cpp -o CMakeFiles/gameOfTheYear.dir/Units/unit.cpp.s
 
 CMakeFiles/gameOfTheYear.dir/characteristics.cpp.o: CMakeFiles/gameOfTheYear.dir/flags.make
 CMakeFiles/gameOfTheYear.dir/characteristics.cpp.o: ../characteristics.cpp
@@ -126,7 +126,7 @@ CMakeFiles/gameOfTheYear.dir/subject.cpp.s: cmake_force
 gameOfTheYear_OBJECTS = \
 "CMakeFiles/gameOfTheYear.dir/main.cpp.o" \
 "CMakeFiles/gameOfTheYear.dir/field.cpp.o" \
-"CMakeFiles/gameOfTheYear.dir/unit.cpp.o" \
+"CMakeFiles/gameOfTheYear.dir/Units/unit.cpp.o" \
 "CMakeFiles/gameOfTheYear.dir/characteristics.cpp.o" \
 "CMakeFiles/gameOfTheYear.dir/subject.cpp.o"
 
@@ -135,7 +135,7 @@ gameOfTheYear_EXTERNAL_OBJECTS =
 
 gameOfTheYear: CMakeFiles/gameOfTheYear.dir/main.cpp.o
 gameOfTheYear: CMakeFiles/gameOfTheYear.dir/field.cpp.o
-gameOfTheYear: CMakeFiles/gameOfTheYear.dir/unit.cpp.o
+gameOfTheYear: CMakeFiles/gameOfTheYear.dir/Units/unit.cpp.o
 gameOfTheYear: CMakeFiles/gameOfTheYear.dir/characteristics.cpp.o
 gameOfTheYear: CMakeFiles/gameOfTheYear.dir/subject.cpp.o
 gameOfTheYear: CMakeFiles/gameOfTheYear.dir/build.make

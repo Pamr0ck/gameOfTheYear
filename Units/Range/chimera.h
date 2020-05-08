@@ -5,9 +5,9 @@
 #ifndef CHIMERA_H
 #define CHIMERA_H
 
-#include "dire.h"
+#include "range.h"
 
-class Chimera : public Dire {
+class Chimera : public Range {
 public:
     Chimera(){
         name = "Chimera";

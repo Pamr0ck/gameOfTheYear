@@ -5,9 +5,9 @@
 #ifndef WITCH_H
 #define WITCH_H
 
-#include "dire.h"
+#include "support.h"
 
-class Witch : public Dire {
+class Witch : public Support {
     // support 2 death and  all_char/3 orks
 public:
     Witch()

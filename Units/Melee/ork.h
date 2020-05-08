@@ -5,8 +5,8 @@
 #ifndef ORK_H
 #define ORK_H
 
-#include "dire.h"
-class Ork : public Dire {
+#include "melee.h"
+class Ork : public Melee {
 public:
     Ork()
     {

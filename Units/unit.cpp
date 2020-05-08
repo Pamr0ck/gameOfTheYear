@@ -57,10 +57,3 @@ void Unit::setArmor (int val)
 {
     characteristics->setArmor(val);
 }
-
-
-
-Dragon::Dragon(){
-
-}
-

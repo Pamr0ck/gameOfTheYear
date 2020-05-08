@@ -6,7 +6,7 @@
 #define FIELD_H
 
 #include "libraries.h"
-#include "land.h"
+#include "landscape.h"
 
 class Field;
 class MoveMediator;

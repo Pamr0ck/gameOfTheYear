@@ -4,9 +4,9 @@
 
 #ifndef KNiGHT_H
 #define KNiGHT_H
-#include "radiant.h"
+#include "melee.h"
 
-class Knight : public Radiant{
+class Knight : public Melee{
 public:
     Knight(){
         name = "Knight";

@@ -1,9 +1,9 @@
 file(REMOVE_RECURSE
+  "CMakeFiles/gameOfTheYear.dir/Units/unit.cpp.o"
   "CMakeFiles/gameOfTheYear.dir/characteristics.cpp.o"
   "CMakeFiles/gameOfTheYear.dir/field.cpp.o"
   "CMakeFiles/gameOfTheYear.dir/main.cpp.o"
   "CMakeFiles/gameOfTheYear.dir/subject.cpp.o"
-  "CMakeFiles/gameOfTheYear.dir/unit.cpp.o"
   "gameOfTheYear"
   "gameOfTheYear.pdb"
 )
