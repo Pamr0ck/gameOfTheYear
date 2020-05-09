@@ -1,7 +1,7 @@
 //#include <QApplication>
-#include "field.h"
+#include "Field/field.h"
 #include "Units/unit.h"
-#include "base.h"
+#include "Field/base.h"
 /*
  * объяснить virtual = 0;
 const  создание +

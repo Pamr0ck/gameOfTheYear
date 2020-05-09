@@ -123,6 +123,87 @@ gameOfTheYear/fast:
 	$(MAKE) -f CMakeFiles/gameOfTheYear.dir/build.make CMakeFiles/gameOfTheYear.dir/build
 .PHONY : gameOfTheYear/fast
 
+Field/field.o: Field/field.cpp.o
+
+.PHONY : Field/field.o
+
+# target to build an object file
+Field/field.cpp.o:
+	$(MAKE) -f CMakeFiles/gameOfTheYear.dir/build.make CMakeFiles/gameOfTheYear.dir/Field/field.cpp.o
+.PHONY : Field/field.cpp.o
+
+Field/field.i: Field/field.cpp.i
+
+.PHONY : Field/field.i
+
+# target to preprocess a source file
+Field/field.cpp.i:
+	$(MAKE) -f CMakeFiles/gameOfTheYear.dir/build.make CMakeFiles/gameOfTheYear.dir/Field/field.cpp.i
+.PHONY : Field/field.cpp.i
+
+Field/field.s: Field/field.cpp.s
+
+.PHONY : Field/field.s
+
+# target to generate assembly for a file
+Field/field.cpp.s:
+	$(MAKE) -f CMakeFiles/gameOfTheYear.dir/build.make CMakeFiles/gameOfTheYear.dir/Field/field.cpp.s
+.PHONY : Field/field.cpp.s
+
+Landscape/proxy.o: Landscape/proxy.cpp.o
+
+.PHONY : Landscape/proxy.o
+
+# target to build an object file
+Landscape/proxy.cpp.o:
+	$(MAKE) -f CMakeFiles/gameOfTheYear.dir/build.make CMakeFiles/gameOfTheYear.dir/Landscape/proxy.cpp.o
+.PHONY : Landscape/proxy.cpp.o
+
+Landscape/proxy.i: Landscape/proxy.cpp.i
+
+.PHONY : Landscape/proxy.i
+
+# target to preprocess a source file
+Landscape/proxy.cpp.i:
+	$(MAKE) -f CMakeFiles/gameOfTheYear.dir/build.make CMakeFiles/gameOfTheYear.dir/Landscape/proxy.cpp.i
+.PHONY : Landscape/proxy.cpp.i
+
+Landscape/proxy.s: Landscape/proxy.cpp.s
+
+.PHONY : Landscape/proxy.s
+
+# target to generate assembly for a file
+Landscape/proxy.cpp.s:
+	$(MAKE) -f CMakeFiles/gameOfTheYear.dir/build.make CMakeFiles/gameOfTheYear.dir/Landscape/proxy.cpp.s
+.PHONY : Landscape/proxy.cpp.s
+
+Units/characteristics.o: Units/characteristics.cpp.o
+
+.PHONY : Units/characteristics.o
+
+# target to build an object file
+Units/characteristics.cpp.o:
+	$(MAKE) -f CMakeFiles/gameOfTheYear.dir/build.make CMakeFiles/gameOfTheYear.dir/Units/characteristics.cpp.o
+.PHONY : Units/characteristics.cpp.o
+
+Units/characteristics.i: Units/characteristics.cpp.i
+
+.PHONY : Units/characteristics.i
+
+# target to preprocess a source file
+Units/characteristics.cpp.i:
+	$(MAKE) -f CMakeFiles/gameOfTheYear.dir/build.make CMakeFiles/gameOfTheYear.dir/Units/characteristics.cpp.i
+.PHONY : Units/characteristics.cpp.i
+
+Units/characteristics.s: Units/characteristics.cpp.s
+
+.PHONY : Units/characteristics.s
+
+# target to generate assembly for a file
+Units/characteristics.cpp.s:
+	$(MAKE) -f CMakeFiles/gameOfTheYear.dir/build.make CMakeFiles/gameOfTheYear.dir/Units/characteristics.cpp.s
+.PHONY : Units/characteristics.cpp.s
+
 Units/unit.o: Units/unit.cpp.o
 
 .PHONY : Units/unit.o
@@ -149,60 +230,6 @@ Units/unit.s: Units/unit.cpp.s
 Units/unit.cpp.s:
 	$(MAKE) -f CMakeFiles/gameOfTheYear.dir/build.make CMakeFiles/gameOfTheYear.dir/Units/unit.cpp.s
 .PHONY : Units/unit.cpp.s
-
-characteristics.o: characteristics.cpp.o
-
-.PHONY : characteristics.o
-
-# target to build an object file
-characteristics.cpp.o:
-	$(MAKE) -f CMakeFiles/gameOfTheYear.dir/build.make CMakeFiles/gameOfTheYear.dir/characteristics.cpp.o
-.PHONY : characteristics.cpp.o
-
-characteristics.i: characteristics.cpp.i
-
-.PHONY : characteristics.i
-
-# target to preprocess a source file
-characteristics.cpp.i:
-	$(MAKE) -f CMakeFiles/gameOfTheYear.dir/build.make CMakeFiles/gameOfTheYear.dir/characteristics.cpp.i
-.PHONY : characteristics.cpp.i
-
-characteristics.s: characteristics.cpp.s
-
-.PHONY : characteristics.s
-
-# target to generate assembly for a file
-characteristics.cpp.s:
-	$(MAKE) -f CMakeFiles/gameOfTheYear.dir/build.make CMakeFiles/gameOfTheYear.dir/characteristics.cpp.s
-.PHONY : characteristics.cpp.s
-
-field.o: field.cpp.o
-
-.PHONY : field.o
-
-# target to build an object file
-field.cpp.o:
-	$(MAKE) -f CMakeFiles/gameOfTheYear.dir/build.make CMakeFiles/gameOfTheYear.dir/field.cpp.o
-.PHONY : field.cpp.o
-
-field.i: field.cpp.i
-
-.PHONY : field.i
-
-# target to preprocess a source file
-field.cpp.i:
-	$(MAKE) -f CMakeFiles/gameOfTheYear.dir/build.make CMakeFiles/gameOfTheYear.dir/field.cpp.i
-.PHONY : field.cpp.i
-
-field.s: field.cpp.s
-
-.PHONY : field.s
-
-# target to generate assembly for a file
-field.cpp.s:
-	$(MAKE) -f CMakeFiles/gameOfTheYear.dir/build.make CMakeFiles/gameOfTheYear.dir/field.cpp.s
-.PHONY : field.cpp.s
 
 main.o: main.cpp.o
 
@@ -267,15 +294,18 @@ help:
 	@echo "... rebuild_cache"
 	@echo "... edit_cache"
 	@echo "... gameOfTheYear"
+	@echo "... Field/field.o"
+	@echo "... Field/field.i"
+	@echo "... Field/field.s"
+	@echo "... Landscape/proxy.o"
+	@echo "... Landscape/proxy.i"
+	@echo "... Landscape/proxy.s"
+	@echo "... Units/characteristics.o"
+	@echo "... Units/characteristics.i"
+	@echo "... Units/characteristics.s"
 	@echo "... Units/unit.o"
 	@echo "... Units/unit.i"
 	@echo "... Units/unit.s"
-	@echo "... characteristics.o"
-	@echo "... characteristics.i"
-	@echo "... characteristics.s"
-	@echo "... field.o"
-	@echo "... field.i"
-	@echo "... field.s"
 	@echo "... main.o"
 	@echo "... main.i"
 	@echo "... main.s"

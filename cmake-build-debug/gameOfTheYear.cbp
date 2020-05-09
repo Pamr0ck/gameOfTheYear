@@ -82,6 +82,18 @@
 				</MakeCommands>
 			</Target>
 		</Build>
+		<Unit filename="/home/kot/ETU/OOP/gameOfTheYear/Field/field.cpp">
+			<Option target="gameOfTheYear"/>
+		</Unit>
+		<Unit filename="/home/kot/ETU/OOP/gameOfTheYear/Field/field.h">
+			<Option target="gameOfTheYear"/>
+		</Unit>
+		<Unit filename="/home/kot/ETU/OOP/gameOfTheYear/Landscape/proxy.cpp">
+			<Option target="gameOfTheYear"/>
+		</Unit>
+		<Unit filename="/home/kot/ETU/OOP/gameOfTheYear/Landscape/proxy.h">
+			<Option target="gameOfTheYear"/>
+		</Unit>
 		<Unit filename="/home/kot/ETU/OOP/gameOfTheYear/Units/Factory/direFactory.h">
 			<Option target="gameOfTheYear"/>
 		</Unit>
@@ -118,22 +130,16 @@
 		<Unit filename="/home/kot/ETU/OOP/gameOfTheYear/Units/Support/witch.h">
 			<Option target="gameOfTheYear"/>
 		</Unit>
+		<Unit filename="/home/kot/ETU/OOP/gameOfTheYear/Units/characteristics.cpp">
+			<Option target="gameOfTheYear"/>
+		</Unit>
+		<Unit filename="/home/kot/ETU/OOP/gameOfTheYear/Units/characteristics.h">
+			<Option target="gameOfTheYear"/>
+		</Unit>
 		<Unit filename="/home/kot/ETU/OOP/gameOfTheYear/Units/unit.cpp">
 			<Option target="gameOfTheYear"/>
 		</Unit>
 		<Unit filename="/home/kot/ETU/OOP/gameOfTheYear/Units/unit.h">
-			<Option target="gameOfTheYear"/>
-		</Unit>
-		<Unit filename="/home/kot/ETU/OOP/gameOfTheYear/characteristics.cpp">
-			<Option target="gameOfTheYear"/>
-		</Unit>
-		<Unit filename="/home/kot/ETU/OOP/gameOfTheYear/characteristics.h">
-			<Option target="gameOfTheYear"/>
-		</Unit>
-		<Unit filename="/home/kot/ETU/OOP/gameOfTheYear/field.cpp">
-			<Option target="gameOfTheYear"/>
-		</Unit>
-		<Unit filename="/home/kot/ETU/OOP/gameOfTheYear/field.h">
 			<Option target="gameOfTheYear"/>
 		</Unit>
 		<Unit filename="/home/kot/ETU/OOP/gameOfTheYear/libraries.h">

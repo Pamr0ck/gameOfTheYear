@@ -5,8 +5,8 @@
 #ifndef FIELD_H
 #define FIELD_H
 
-#include "libraries.h"
-#include "landscape.h"
+#include "../libraries.h"
+#include "../Landscape/landscape.h"
 
 class Field;
 class MoveMediator;
@@ -54,7 +54,6 @@ private:
     const unsigned itemLimit;
     unsigned itemCounter;
     FieldItem ***items;
-    Proxy*** land;
     MoveMediator *moveMediator;
 
 };

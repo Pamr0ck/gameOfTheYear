@@ -6,6 +6,20 @@
 
 #IncludeRegexTransform: 
 
+/home/kot/ETU/OOP/gameOfTheYear/Landscape/landscape.h
+iostream
+-
+
+/home/kot/ETU/OOP/gameOfTheYear/Landscape/proxy.cpp
+proxy.h
+/home/kot/ETU/OOP/gameOfTheYear/Landscape/proxy.h
+
+/home/kot/ETU/OOP/gameOfTheYear/Landscape/proxy.h
+../Units/unit.h
+/home/kot/ETU/OOP/gameOfTheYear/Units/unit.h
+landscape.h
+/home/kot/ETU/OOP/gameOfTheYear/Landscape/landscape.h
+
 /home/kot/ETU/OOP/gameOfTheYear/Units/unit.cpp
 unit.h
 /home/kot/ETU/OOP/gameOfTheYear/Units/unit.h
@@ -24,10 +38,6 @@ unit.h
 Units/unit.h
 /home/kot/ETU/OOP/gameOfTheYear/Units/unit.h
 
-/home/kot/ETU/OOP/gameOfTheYear/characteristics.cpp
-characteristics.h
-/home/kot/ETU/OOP/gameOfTheYear/characteristics.h
-
 /home/kot/ETU/OOP/gameOfTheYear/characteristics.h
 
 /home/kot/ETU/OOP/gameOfTheYear/field.cpp
@@ -37,16 +47,10 @@ field.h
 /home/kot/ETU/OOP/gameOfTheYear/field.h
 libraries.h
 /home/kot/ETU/OOP/gameOfTheYear/libraries.h
-land.h
-/home/kot/ETU/OOP/gameOfTheYear/land.h
-
-/home/kot/ETU/OOP/gameOfTheYear/land.h
-libraries.h
-/home/kot/ETU/OOP/gameOfTheYear/libraries.h
+Landscape/landscape.h
+/home/kot/ETU/OOP/gameOfTheYear/Landscape/landscape.h
 
 /home/kot/ETU/OOP/gameOfTheYear/libraries.h
-iostream
--
 string
 -
 
@@ -61,10 +65,6 @@ base.h
 /home/kot/ETU/OOP/gameOfTheYear/moveMediator.h
 
 /home/kot/ETU/OOP/gameOfTheYear/observer.h
-
-/home/kot/ETU/OOP/gameOfTheYear/subject.cpp
-subject.h
-/home/kot/ETU/OOP/gameOfTheYear/subject.h
 
 /home/kot/ETU/OOP/gameOfTheYear/subject.h
 vector
