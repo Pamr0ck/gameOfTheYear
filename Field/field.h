@@ -7,22 +7,9 @@
 
 #include "../libraries.h"
 #include "../Landscape/landscape.h"
-
-class Field;
+#include "fieldItem.h"
+#include "../Landscape/proxy.h"
 class MoveMediator;
-
-class FieldItem{
-
-public:
-    virtual ~FieldItem() = default;
-    virtual bool isMovable() = 0;
-    virtual std::string about() = 0;
-    virtual std::string shortName() = 0;
-    virtual FieldItem* itemCopy() = 0;
-    virtual void move(int x, int y) = 0;
-    virtual void setMoveMediator(MoveMediator *value) = 0;
-};
-
 class Field{
 public:
     Field(unsigned width, unsigned height, unsigned itemLimit);

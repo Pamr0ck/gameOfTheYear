@@ -17,7 +17,7 @@ private:
 public:
     Proxy(Landscape*);
     bool canMove(Unit*) const;
-    bool canAttack(Unit*) const;
+    bool canAttack(Unit*);
     ~Proxy();
     std::string getType() const;
 };

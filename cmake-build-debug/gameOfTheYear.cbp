@@ -88,6 +88,12 @@
 		<Unit filename="/home/kot/ETU/OOP/gameOfTheYear/Field/field.h">
 			<Option target="gameOfTheYear"/>
 		</Unit>
+		<Unit filename="/home/kot/ETU/OOP/gameOfTheYear/Field/fieldItem.cpp">
+			<Option target="gameOfTheYear"/>
+		</Unit>
+		<Unit filename="/home/kot/ETU/OOP/gameOfTheYear/Field/fieldItem.h">
+			<Option target="gameOfTheYear"/>
+		</Unit>
 		<Unit filename="/home/kot/ETU/OOP/gameOfTheYear/Landscape/proxy.cpp">
 			<Option target="gameOfTheYear"/>
 		</Unit>

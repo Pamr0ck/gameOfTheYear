@@ -6,6 +6,20 @@
 
 #IncludeRegexTransform: 
 
+/home/kot/ETU/OOP/gameOfTheYear/Field/base.h
+../Units/unit.h
+/home/kot/ETU/OOP/gameOfTheYear/Units/unit.h
+
+/home/kot/ETU/OOP/gameOfTheYear/Field/field.cpp
+field.h
+/home/kot/ETU/OOP/gameOfTheYear/Field/field.h
+
+/home/kot/ETU/OOP/gameOfTheYear/Field/field.h
+../libraries.h
+/home/kot/ETU/OOP/gameOfTheYear/libraries.h
+../Landscape/landscape.h
+/home/kot/ETU/OOP/gameOfTheYear/Landscape/landscape.h
+
 /home/kot/ETU/OOP/gameOfTheYear/Landscape/landscape.h
 iostream
 -
@@ -20,47 +34,37 @@ proxy.h
 landscape.h
 /home/kot/ETU/OOP/gameOfTheYear/Landscape/landscape.h
 
+/home/kot/ETU/OOP/gameOfTheYear/Units/characteristics.cpp
+characteristics.h
+/home/kot/ETU/OOP/gameOfTheYear/Units/characteristics.h
+
+/home/kot/ETU/OOP/gameOfTheYear/Units/characteristics.h
+
 /home/kot/ETU/OOP/gameOfTheYear/Units/unit.cpp
 unit.h
 /home/kot/ETU/OOP/gameOfTheYear/Units/unit.h
 
 /home/kot/ETU/OOP/gameOfTheYear/Units/unit.h
-../field.h
-/home/kot/ETU/OOP/gameOfTheYear/field.h
-../characteristics.h
-/home/kot/ETU/OOP/gameOfTheYear/characteristics.h
+../Field/field.h
+/home/kot/ETU/OOP/gameOfTheYear/Field/field.h
+characteristics.h
+/home/kot/ETU/OOP/gameOfTheYear/Units/characteristics.h
 ../moveMediator.h
 /home/kot/ETU/OOP/gameOfTheYear/moveMediator.h
 ../subject.h
 /home/kot/ETU/OOP/gameOfTheYear/subject.h
-
-/home/kot/ETU/OOP/gameOfTheYear/base.h
-Units/unit.h
-/home/kot/ETU/OOP/gameOfTheYear/Units/unit.h
-
-/home/kot/ETU/OOP/gameOfTheYear/characteristics.h
-
-/home/kot/ETU/OOP/gameOfTheYear/field.cpp
-field.h
-/home/kot/ETU/OOP/gameOfTheYear/field.h
-
-/home/kot/ETU/OOP/gameOfTheYear/field.h
-libraries.h
-/home/kot/ETU/OOP/gameOfTheYear/libraries.h
-Landscape/landscape.h
-/home/kot/ETU/OOP/gameOfTheYear/Landscape/landscape.h
 
 /home/kot/ETU/OOP/gameOfTheYear/libraries.h
 string
 -
 
 /home/kot/ETU/OOP/gameOfTheYear/main.cpp
-field.h
-/home/kot/ETU/OOP/gameOfTheYear/field.h
+Field/field.h
+/home/kot/ETU/OOP/gameOfTheYear/Field/field.h
 Units/unit.h
 /home/kot/ETU/OOP/gameOfTheYear/Units/unit.h
-base.h
-/home/kot/ETU/OOP/gameOfTheYear/base.h
+Field/base.h
+/home/kot/ETU/OOP/gameOfTheYear/Field/base.h
 
 /home/kot/ETU/OOP/gameOfTheYear/moveMediator.h
 

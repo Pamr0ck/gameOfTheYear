@@ -150,6 +150,33 @@ Field/field.cpp.s:
 	$(MAKE) -f CMakeFiles/gameOfTheYear.dir/build.make CMakeFiles/gameOfTheYear.dir/Field/field.cpp.s
 .PHONY : Field/field.cpp.s
 
+Field/fieldItem.o: Field/fieldItem.cpp.o
+
+.PHONY : Field/fieldItem.o
+
+# target to build an object file
+Field/fieldItem.cpp.o:
+	$(MAKE) -f CMakeFiles/gameOfTheYear.dir/build.make CMakeFiles/gameOfTheYear.dir/Field/fieldItem.cpp.o
+.PHONY : Field/fieldItem.cpp.o
+
+Field/fieldItem.i: Field/fieldItem.cpp.i
+
+.PHONY : Field/fieldItem.i
+
+# target to preprocess a source file
+Field/fieldItem.cpp.i:
+	$(MAKE) -f CMakeFiles/gameOfTheYear.dir/build.make CMakeFiles/gameOfTheYear.dir/Field/fieldItem.cpp.i
+.PHONY : Field/fieldItem.cpp.i
+
+Field/fieldItem.s: Field/fieldItem.cpp.s
+
+.PHONY : Field/fieldItem.s
+
+# target to generate assembly for a file
+Field/fieldItem.cpp.s:
+	$(MAKE) -f CMakeFiles/gameOfTheYear.dir/build.make CMakeFiles/gameOfTheYear.dir/Field/fieldItem.cpp.s
+.PHONY : Field/fieldItem.cpp.s
+
 Landscape/proxy.o: Landscape/proxy.cpp.o
 
 .PHONY : Landscape/proxy.o
@@ -297,6 +324,9 @@ help:
 	@echo "... Field/field.o"
 	@echo "... Field/field.i"
 	@echo "... Field/field.s"
+	@echo "... Field/fieldItem.o"
+	@echo "... Field/fieldItem.i"
+	@echo "... Field/fieldItem.s"
 	@echo "... Landscape/proxy.o"
 	@echo "... Landscape/proxy.i"
 	@echo "... Landscape/proxy.s"

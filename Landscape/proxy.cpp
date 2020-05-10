@@ -31,11 +31,12 @@ bool Proxy::canMove (Unit* unitType) const
     return false;
 }
 
-bool Proxy::canAttack (Unit* unitType) const {
+bool Proxy::canAttack (Unit* unitType){
     if (landscape->getType() == "Forest"
         && (unitType->getType() == "Dragon" || unitType->getType()== "Chimera"))
     {
-        landscape->getType() = "Desert";
+        delete landscape;
+        landscape = new Desert();
         return true;
     }
     return !(landscape->getType() == "Forest"
