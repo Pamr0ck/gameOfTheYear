@@ -4,7 +4,7 @@
 
 #ifndef DRYAD_H
 #define DRYAD_H
-#include "Support.h"
+#include "support.h"
 
 class Dryad : public Support
 {
@@ -13,7 +13,7 @@ public:
     Dryad()
     {
         name = "Dryad";
-        characteristics->setAll(20, 40, 45);
+        characteristics->setAll(2000, 40, 45);
     };
     std::string getName() {return name;}
     Unit *itemCopy(){

@@ -36,6 +36,8 @@ public:
 
     std::string getType() const;
 
+    virtual Characteristics* getCharacteristics()const;
+
     void setHealth(int);
     void setDamage(int);
     void setArmor(int);

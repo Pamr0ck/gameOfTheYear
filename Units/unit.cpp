@@ -43,6 +43,11 @@ std::string Unit::getType () const
     return "unit";
 }
 
+Characteristics *Unit::getCharacteristics () const {
+    return characteristics;
+}
+
+
 void Unit::setHealth (int val)
 {
     characteristics->setHealth(val);

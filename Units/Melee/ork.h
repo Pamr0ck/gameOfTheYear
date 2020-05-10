@@ -11,7 +11,7 @@ public:
     Ork()
     {
         name = "Ork";
-        characteristics->setAll(60, 15, 5);
+        characteristics->setAll(600, 15, 15);
     };
     std::string getName() {return name;}
     Unit *itemCopy(){

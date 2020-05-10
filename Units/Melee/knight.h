@@ -10,7 +10,7 @@ class Knight : public Melee{
 public:
     Knight(){
         name = "Knight";
-        characteristics->setAll(50, 20, 15);
+        characteristics->setAll(500, 20, 30);
     };
     std::string getName() {return name;}
     Unit *itemCopy(){

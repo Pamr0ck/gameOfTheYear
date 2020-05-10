@@ -94,6 +94,24 @@
 		<Unit filename="/home/kot/ETU/OOP/gameOfTheYear/Landscape/proxy.h">
 			<Option target="gameOfTheYear"/>
 		</Unit>
+		<Unit filename="/home/kot/ETU/OOP/gameOfTheYear/NeutralObject/armor.h">
+			<Option target="gameOfTheYear"/>
+		</Unit>
+		<Unit filename="/home/kot/ETU/OOP/gameOfTheYear/NeutralObject/context.h">
+			<Option target="gameOfTheYear"/>
+		</Unit>
+		<Unit filename="/home/kot/ETU/OOP/gameOfTheYear/NeutralObject/curse.h">
+			<Option target="gameOfTheYear"/>
+		</Unit>
+		<Unit filename="/home/kot/ETU/OOP/gameOfTheYear/NeutralObject/elixir.h">
+			<Option target="gameOfTheYear"/>
+		</Unit>
+		<Unit filename="/home/kot/ETU/OOP/gameOfTheYear/NeutralObject/neutralObj.h">
+			<Option target="gameOfTheYear"/>
+		</Unit>
+		<Unit filename="/home/kot/ETU/OOP/gameOfTheYear/NeutralObject/weapon.h">
+			<Option target="gameOfTheYear"/>
+		</Unit>
 		<Unit filename="/home/kot/ETU/OOP/gameOfTheYear/Units/Factory/direFactory.h">
 			<Option target="gameOfTheYear"/>
 		</Unit>

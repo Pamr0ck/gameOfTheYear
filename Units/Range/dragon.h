@@ -11,7 +11,7 @@ public:
     Dragon()
     {
         name = "Dragon";
-        characteristics->setAll(120, 10, 90);
+        characteristics->setAll(1200, 100, 90);
     };
     std::string getName() {return name;}
     Unit *itemCopy(){

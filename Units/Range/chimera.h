@@ -11,7 +11,7 @@ class Chimera : public Range {
 public:
     Chimera(){
         name = "Chimera";
-        characteristics->setAll(100, 80, 50);
+        characteristics->setAll(1000, 80, 50);
     };
     std::string getName() {return name;}
     Unit *itemCopy(){

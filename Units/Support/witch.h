@@ -13,7 +13,7 @@ public:
     Witch()
     {
         name = "Witch";
-        characteristics->setAll(15, 35, 60);
+        characteristics->setAll(1500, 35, 60);
     };
     std::string getName() {return name;}
     Unit *itemCopy(){
