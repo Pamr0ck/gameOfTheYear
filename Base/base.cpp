@@ -1,23 +1,20 @@
 #include "base.h"
 
-Base::Base()
-    : name("BAS"), health(20000), itemLimit(15), itemCounter(0)
+Base::Base (int maxUnitsCount, int health,
+			int xx, int yy, int baseNumb)
+			: baseNumb(baseNumb), unitCount(0),
+			maxCount(maxUnitsCount), unitCurr(0),
+			health(health), x(xx), y(yy)
 {
-    supportFactory = new SupportFactory();
-    rangeFactory = new RangeFactory();
-    meleeFactory = new MeleeFactory();
-}
-Base::Base(unsigned itemLimit)
-    : name("BAS"), health(20000),itemLimit(itemLimit), itemCounter(0)
-{
-    supportFactory = new SupportFactory();
-    rangeFactory = new RangeFactory();
-    meleeFactory = new MeleeFactory();
-}
-
-unsigned Base::getHealth() const
-{
-    return health;
+	units = new Composite;
+	units->add(new Composite);
+	units->add(new Composite);
+	units->add(new Composite);
+	for (auto i = 0; i < 3; i++)
+	{
+		units->getChildren(i)->add(new Leaf);
+		units->getChildren(i)->add(new Leaf);
+	}
 }
 
 std::string Base::shortName()
@@ -25,94 +22,108 @@ std::string Base::shortName()
     return  "ⒷⒶⓈⒺ";
 }
 
-FieldItem* Base::addOrk(unsigned x, unsigned y)
-{
-    if(itemCounter<itemLimit){
-        auto unit = meleeFactory->createDire();
-        if(field->addItem(x,y,unit)){
-            itemCounter++;
-            std::cout << unit->about() << "was born\n";
-            return unit;
-        }
-    }
-    throw std::invalid_argument("no such item on field");
+int Base::getBaseNumb () const {
+	return baseNumb;
 }
 
-FieldItem* Base::addKnight(unsigned x, unsigned y)
-{
-    if(itemCounter<itemLimit){
-        auto unit = meleeFactory->createRadiant();
-        if(field->addItem(x,y, unit)){
-            itemCounter++;
-            std::cout << unit->about() << "was born\n";
-            return unit;
-        }
-    }
-    throw std::invalid_argument("no such item on field");
+int Base::getX () const {
+	return x;
 }
 
-FieldItem* Base::addDryad(unsigned x, unsigned y)
-{
-    if(itemCounter<itemLimit){
-        auto unit = supportFactory->createRadiant();
-        if(field->addItem(x,y,unit)){
-            itemCounter++;
-            std::cout << unit->about() << "was born\n";
-            return unit;
-        }
-    }
-    throw std::invalid_argument("no such item on field");
+int Base::getY () const {
+	return y;
 }
 
-FieldItem* Base::addWitch(unsigned x, unsigned y)
-{
-    if(itemCounter<itemLimit){
-        auto unit = supportFactory->createDire();
-        if(field->addItem(x,y,unit)){
-            itemCounter++;
-            std::cout << unit->about() << "was born\n";
-            return unit;
-        }
-    }
-    throw std::invalid_argument("no such item on field");
+int Base::getUnitCount () const {
+	return unitCount;
 }
 
-FieldItem* Base::addDragon(unsigned x, unsigned y)
-{
-    if(itemCounter<itemLimit){
-        auto unit = rangeFactory->createRadiant();
-        if(field->addItem(x,y, unit)){
-            itemCounter++;
-            std::cout << unit->about() << "was born\n";
-            return unit;
-        }
-    }
-    throw std::invalid_argument("no such item on field");
+int Base::getMaxCount () const {
+	return maxCount;
 }
 
-FieldItem* Base::addChimera(unsigned x, unsigned y)
-{
-    if(itemCounter<itemLimit){
-        auto unit = rangeFactory->createDire();
-        if(field->addItem(x,y, unit)){
-            itemCounter++;
-            std::cout << unit->about() << "was born\n";
-            return unit;
-        }
-    }
-    throw std::invalid_argument("no such item on field");
+int Base::getHealth () const {
+	return health;
 }
 
-FieldItem* Base::deleteUnit(FieldItem *obj)
-{
-    itemCounter--;
-    std::string tmp = obj->shortName();
-    field->deleteItem(obj);
-    std::cout << "Rest In peace, " << tmp << "\n";
+Unit *Base::createUnit (std::string unitName) {
+	Unit* unit = nullptr;
+	if (unitCount++ > maxCount)
+	{
+		std::cout << "max limit reached\n";
+		return nullptr;
+	}
+
+	if (unitName == "Knight")
+		unit = radiantFactory->createMelee();
+	else if (unitName == "Dragon")
+		unit = radiantFactory->createRange();
+	else if (unitName == "Dryad")
+		unit = radiantFactory->createSupport();
+	else if (unitName == "Ork")
+		unit = direFactory->createMelee();
+	else if (unitName == "Chimera")
+		unit = direFactory->createRange();
+	else if (unitName == "Witch")
+		unit = direFactory->createSupport();
+
+	addUnit(unit);
+
+	return unit;
+}
+
+void Base::addUnit (Unit *u) {
+	auto unitName = u->getName();
+	if (unitCount++ > maxCount)
+	{
+		std::cout << "max limit reached\n";
+		throw std::range_error ("limit of units reached");
+	}
+	if (unitName == "Knight")
+		units->getChildren(0)->getChildren(0)->addUnit(u);
+	else if (unitName == "Dragon")
+		units->getChildren(1)->getChildren(0)->addUnit(u);
+	else if (unitName == "Dryad")
+		units->getChildren(2)->getChildren(0)->addUnit(u);
+	else if (unitName == "Ork")
+		units->getChildren(0)->getChildren(1)->addUnit(u);
+	else if (unitName == "Chimera")
+		units->getChildren(1)->getChildren(1)->addUnit(u);
+	else if (unitName == "Witch")
+		units->getChildren(2)->getChildren(1)->addUnit(u);
+	unitCount++;
+
 
 }
 
+void Base::delUnit (Unit *u) {
+	auto unitName = u->getName();
+	if (unitName == "Knight")
+		units->getChildren(0)->getChildren(0)->removeUnit(u);
+	else if (unitName == "Dragon")
+		units->getChildren(1)->getChildren(0)->removeUnit(u);
+	else if (unitName == "Dryad")
+		units->getChildren(2)->getChildren(0)->removeUnit(u);
+	else if (unitName == "Ork")
+		units->getChildren(0)->getChildren(1)->removeUnit(u);
+	else if (unitName == "Chimera")
+		units->getChildren(1)->getChildren(1)->removeUnit(u);
+	else if (unitName == "Witch")
+		units->getChildren(2)->getChildren(1)->removeUnit(u);
+	unitCount--;
+	std::cout << "unit deleted";
 
+}
 
+//Unit *Base::getCurrUnit () {
+//	return nullptr;
+//}
 
-
+bool Base::getDamage (int numb) {
+	this->health -= numb;
+	if (this->health <= 0){
+		this->health = 0;
+		return true;
+	}
+	return false;
+}

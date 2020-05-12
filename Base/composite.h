@@ -62,7 +62,7 @@ public:
 	void removeUnit(Unit* unit) {}
 };
 
-class Leaf : Component {
+class Leaf : public Component {
 protected:
 	std::list<Unit *> units;
 public:
@@ -83,14 +83,18 @@ public:
 	void removeUnit(Unit* unit)
 	{
 		units.remove(unit);
+
+	}
+	Component * getChildren(unsigned int index) {
+		return this;
 	}
 //	std::list<Unit*> getUnits()
 //	{
 //		return units;
 //	}
 
-	void Add(Component *component) {}
-	void Remove(Component *component) {}
+	void add(Component *component) {}
+	void remove(Component *component) {}
 
 
 };

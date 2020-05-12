@@ -82,6 +82,12 @@
 				</MakeCommands>
 			</Target>
 		</Build>
+		<Unit filename="/home/kot/ETU/OOP/gameOfTheYear/Base/base.cpp">
+			<Option target="gameOfTheYear"/>
+		</Unit>
+		<Unit filename="/home/kot/ETU/OOP/gameOfTheYear/Base/base.h">
+			<Option target="gameOfTheYear"/>
+		</Unit>
 		<Unit filename="/home/kot/ETU/OOP/gameOfTheYear/Base/composite.h">
 			<Option target="gameOfTheYear"/>
 		</Unit>

@@ -1,4 +1,5 @@
 file(REMOVE_RECURSE
+  "CMakeFiles/gameOfTheYear.dir/Base/base.cpp.o"
   "CMakeFiles/gameOfTheYear.dir/Field/field.cpp.o"
   "CMakeFiles/gameOfTheYear.dir/Field/fieldItem.cpp.o"
   "CMakeFiles/gameOfTheYear.dir/Landscape/proxy.cpp.o"

@@ -1,53 +1,50 @@
 #ifndef BASE_H
 #define BASE_H
 
-#include "../Units/unit.h"
+#include "composite.h"
+#include "../Units/Factory/direFactory.h"
+#include "../Units/Factory/radiantFactory.h"
 
-class Base : public IObserver
+class Base
 {
 public:
-    Base();
-    Base(unsigned itemLimit);
-    ~Base(){
-        delete  moveMediator;
-    }
-    virtual bool isMovable() {
-       return movable;
-    }
-    unsigned getHealth() const;
+    Base(int, int, int, int, int);
+
+    int getBaseNumb() const;
+    int getX() const;
+    int getY()const;
+    int getUnitCount() const;
+    int getMaxCount() const;
+    int getHealth() const;
+    Unit* createUnit(std::string);
+    void addUnit(Unit* u);
+    void delUnit(Unit* u);
+    Unit* getCurrUnit();
+    bool getDamage(int);
+
     std::string shortName();
-    void setMoveMediator(MoveMediator *value){};
-    std::string about(){return "";};
-    void move(int x, int y) {};
-    bool addUnit(unsigned x, unsigned y, FieldItem *item);
-    FieldItem *itemCopy(){
-        return new Base();
-    };
-    unsigned getItemCounter() const {
-        return itemCounter;
-    }
-
-    FieldItem* addOrk(unsigned x, unsigned y);
-    FieldItem* addKnight(unsigned x, unsigned y);
-    FieldItem* addDryad(unsigned x, unsigned y);
-    FieldItem* addWitch(unsigned x, unsigned y);
-    FieldItem* addDragon(unsigned x, unsigned y);
-    FieldItem* addChimera(unsigned x, unsigned y);
-    FieldItem* deleteUnit(FieldItem *obj);
-
-    //bool isMine()
+//    void setMoveMediator(MoveMediator *value){};
+//    std::string about(){return "";};
+//    void move(int x, int y) {};
+//    bool addUnit(unsigned x, unsigned y, FieldItem *item);
+//    FieldItem *itemCopy(){
+//        return new Base();
+//    };
+//    unsigned getItemCounter() const {
+//        return itemCounter;
+//    }
 private:
-//    Field *field;
     std::string name;
-    unsigned health;
-    const unsigned itemLimit;
-    unsigned itemCounter;
-    const bool movable = false;
-    MoveMediator *moveMediator = nullptr;
-protected:
-    MeleeFactory* meleeFactory;
-    SupportFactory* supportFactory;
-    RangeFactory* rangeFactory;
+    int baseNumb;
+    int unitCount;
+    const int maxCount;
+    int health;
+    const int x, y;
+    int unitCurr;
+    Component* units;
+    UnitFactory* direFactory = new DireFactory();
+    UnitFactory* radiantFactory = new RadiantFactory();
+
 };
 
 #endif // BASE_H
