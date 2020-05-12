@@ -5,30 +5,44 @@
 #ifndef FIELD_H
 #define FIELD_H
 
-#include "../libraries.h"
-#include "../Landscape/landscape.h"
 #include "fieldItem.h"
 #include "../Landscape/proxy.h"
-class Field{
+#include "../Base/base.h"
+
+using namespace std;
+
+class Field : Observer{
 public:
-    Field(unsigned width, unsigned height, unsigned itemLimit);
+    Field(unsigned width, unsigned height, unsigned maxItems);
     Field(const Field &field);
     Field(Field &&field);
+	Field &operator=(const Field &field);
+	Field &operator=(Field &&field);
 
-    unsigned getWidth() const;
+	unsigned getWidth() const;
     unsigned getHeight() const;
-    unsigned getItemCounter() const;
-    bool addItem(unsigned x, unsigned y, FieldItem *item);
-    bool deleteItem(unsigned x, unsigned y);
-    bool deleteItem(FieldItem *item);
-    bool moveItem(FieldItem *item, int x, int y);
-    std::string getAbout(unsigned x, unsigned y);
-    std::string getShortInfo();
-    void setItemLimit(const unsigned &value);
-    void setMoveMediator(MoveMediator *value);
-    FieldItem *getItem(unsigned x, unsigned y) const;
-    Field &operator=(const Field &field);
-    Field &operator=(Field &&field);
+
+	bool moveUnit(Unit*, int, int);
+
+	void setMoveMediator(MoveMediator *value);
+
+	unsigned getMaxItems() const;
+	bool isCellFreeForUnit(size_t, size_t);
+
+
+	bool addUnit (Unit *item, unsigned x, unsigned y, int baseNum);
+	bool deleteUnit(unsigned x, unsigned y);
+
+	bool deleteItem(FieldItem *item);
+
+
+	Base* getBase()const;
+//	bool moveItem(FieldItem *item, int x, int y);
+	std::string getAbout(unsigned x, unsigned y);
+	std::string getShortInfo();
+	FieldItem *getItem(unsigned x, unsigned y) const;
+	unsigned getItemCounter() const;
+
 
     void addLand(unsigned x, unsigned y, Proxy *landscape);
 
@@ -37,11 +51,12 @@ public:
 private:
     const unsigned width;
     const unsigned height;
-    const unsigned itemLimit;
+    const unsigned maxItems;
     unsigned itemCounter;
     FieldItem ***items;
     MoveMediator *moveMediator;
 
+    Base* base;
 };
 
 

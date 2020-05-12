@@ -6,7 +6,23 @@
 
 #IncludeRegexTransform: 
 
-/home/kot/ETU/OOP/gameOfTheYear/Field/base.h
+/home/kot/ETU/OOP/gameOfTheYear/Base/base.cpp
+base.h
+/home/kot/ETU/OOP/gameOfTheYear/Base/base.h
+
+/home/kot/ETU/OOP/gameOfTheYear/Base/base.h
+composite.h
+/home/kot/ETU/OOP/gameOfTheYear/Base/composite.h
+../Units/Factory/direFactory.h
+/home/kot/ETU/OOP/gameOfTheYear/Units/Factory/direFactory.h
+../Units/Factory/radiantFactory.h
+/home/kot/ETU/OOP/gameOfTheYear/Units/Factory/radiantFactory.h
+
+/home/kot/ETU/OOP/gameOfTheYear/Base/composite.h
+vector
+-
+list
+-
 ../Units/unit.h
 /home/kot/ETU/OOP/gameOfTheYear/Units/unit.h
 
@@ -17,6 +33,20 @@ field.h
 /home/kot/ETU/OOP/gameOfTheYear/Field/field.h
 ../libraries.h
 /home/kot/ETU/OOP/gameOfTheYear/libraries.h
+../Landscape/landscape.h
+/home/kot/ETU/OOP/gameOfTheYear/Landscape/landscape.h
+fieldItem.h
+/home/kot/ETU/OOP/gameOfTheYear/Field/fieldItem.h
+../Landscape/proxy.h
+/home/kot/ETU/OOP/gameOfTheYear/Landscape/proxy.h
+
+/home/kot/ETU/OOP/gameOfTheYear/Field/fieldItem.cpp
+fieldItem.h
+/home/kot/ETU/OOP/gameOfTheYear/Field/fieldItem.h
+
+/home/kot/ETU/OOP/gameOfTheYear/Field/fieldItem.h
+../NeutralObject/neutralObj.h
+/home/kot/ETU/OOP/gameOfTheYear/NeutralObject/neutralObj.h
 ../Landscape/landscape.h
 /home/kot/ETU/OOP/gameOfTheYear/Landscape/landscape.h
 
@@ -34,9 +64,73 @@ proxy.h
 landscape.h
 /home/kot/ETU/OOP/gameOfTheYear/Landscape/landscape.h
 
-/home/kot/ETU/OOP/gameOfTheYear/Units/characteristics.cpp
-characteristics.h
-/home/kot/ETU/OOP/gameOfTheYear/Units/characteristics.h
+/home/kot/ETU/OOP/gameOfTheYear/NeutralObject/neutralObj.h
+../Units/unit.h
+/home/kot/ETU/OOP/gameOfTheYear/Units/unit.h
+
+/home/kot/ETU/OOP/gameOfTheYear/Units/Factory/direFactory.h
+unitFactory.h
+/home/kot/ETU/OOP/gameOfTheYear/Units/Factory/unitFactory.h
+../Melee/ork.h
+/home/kot/ETU/OOP/gameOfTheYear/Units/Melee/ork.h
+../Support/witch.h
+/home/kot/ETU/OOP/gameOfTheYear/Units/Support/witch.h
+../Range/chimera.h
+/home/kot/ETU/OOP/gameOfTheYear/Units/Range/chimera.h
+
+/home/kot/ETU/OOP/gameOfTheYear/Units/Factory/radiantFactory.h
+unitFactory.h
+/home/kot/ETU/OOP/gameOfTheYear/Units/Factory/unitFactory.h
+../Melee/knight.h
+/home/kot/ETU/OOP/gameOfTheYear/Units/Melee/knight.h
+../Support/dryad.h
+/home/kot/ETU/OOP/gameOfTheYear/Units/Support/dryad.h
+../Range/dragon.h
+/home/kot/ETU/OOP/gameOfTheYear/Units/Range/dragon.h
+
+/home/kot/ETU/OOP/gameOfTheYear/Units/Factory/unitFactory.h
+../Melee/melee.h
+/home/kot/ETU/OOP/gameOfTheYear/Units/Melee/melee.h
+../Support/support.h
+/home/kot/ETU/OOP/gameOfTheYear/Units/Support/support.h
+../Range/range.h
+/home/kot/ETU/OOP/gameOfTheYear/Units/Range/range.h
+
+/home/kot/ETU/OOP/gameOfTheYear/Units/Melee/knight.h
+melee.h
+/home/kot/ETU/OOP/gameOfTheYear/Units/Melee/melee.h
+
+/home/kot/ETU/OOP/gameOfTheYear/Units/Melee/melee.h
+../unit.h
+/home/kot/ETU/OOP/gameOfTheYear/Units/unit.h
+
+/home/kot/ETU/OOP/gameOfTheYear/Units/Melee/ork.h
+melee.h
+/home/kot/ETU/OOP/gameOfTheYear/Units/Melee/melee.h
+
+/home/kot/ETU/OOP/gameOfTheYear/Units/Range/chimera.h
+range.h
+/home/kot/ETU/OOP/gameOfTheYear/Units/Range/range.h
+
+/home/kot/ETU/OOP/gameOfTheYear/Units/Range/dragon.h
+range.h
+/home/kot/ETU/OOP/gameOfTheYear/Units/Range/range.h
+
+/home/kot/ETU/OOP/gameOfTheYear/Units/Range/range.h
+../unit.h
+/home/kot/ETU/OOP/gameOfTheYear/Units/unit.h
+
+/home/kot/ETU/OOP/gameOfTheYear/Units/Support/dryad.h
+support.h
+/home/kot/ETU/OOP/gameOfTheYear/Units/Support/support.h
+
+/home/kot/ETU/OOP/gameOfTheYear/Units/Support/support.h
+../unit.h
+/home/kot/ETU/OOP/gameOfTheYear/Units/unit.h
+
+/home/kot/ETU/OOP/gameOfTheYear/Units/Support/witch.h
+support.h
+/home/kot/ETU/OOP/gameOfTheYear/Units/Support/support.h
 
 /home/kot/ETU/OOP/gameOfTheYear/Units/characteristics.h
 
@@ -63,8 +157,8 @@ Field/field.h
 /home/kot/ETU/OOP/gameOfTheYear/Field/field.h
 Units/unit.h
 /home/kot/ETU/OOP/gameOfTheYear/Units/unit.h
-Field/base.h
-/home/kot/ETU/OOP/gameOfTheYear/Field/base.h
+Base/base.h
+/home/kot/ETU/OOP/gameOfTheYear/Base/base.h
 
 /home/kot/ETU/OOP/gameOfTheYear/moveMediator.h
 

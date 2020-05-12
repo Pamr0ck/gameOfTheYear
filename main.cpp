@@ -21,10 +21,10 @@ void test1(){
     std::cout << "Hello, this is my first game\n";
     Field field(10,10,4);
     try {
-        field.addItem(0,0,d1);
-        field.addItem(0,1,d2);
-        field.addItem(9,9,r1);
-        field.addItem(9,8,r2);
+	    field.addUnit(d1, 0, 0, 0);
+	    field.addUnit(d2, 0, 1, 0);
+	    field.addUnit(r1, 9, 9, 0);
+	    field.addUnit(r2, 9, 8, 0);
 
     } catch (std::logic_error err) {
         std::cout << "Error: " << err.what() << std::endl;
@@ -45,7 +45,7 @@ void test1(){
     }
     std::cout <<"Try to add after limit of units has reached to (7,7)" <<std::endl;
     try {
-        field.addItem(7,7,r2);
+	    field.addUnit(r2, 7, 7, 0);
 
     } catch (std::logic_error err) {
         std::cout << "Error: " << err.what() << std::endl;
@@ -73,22 +73,22 @@ void test1(){
 void test2(){
     Field field(10,10,100);
     auto base = new Base(&field);
-    field.addItem(3, 6, base);
+	field.addUnit(base, 3, 6, 0);
 
     for(unsigned int i = 0; i < 10; i++){
             for(unsigned int j = 0; j < 10; j++){
-                if((j*i) % 3 == 1){
-                    Proxy* landsc = new Proxy("D");
-                    field.addLand(i, j, landsc);
-                }
-                else if ((j*i) % 2 == 0) {
-                    Proxy* landsc = new Proxy("R");
-                    field.addLand(i, j, landsc);
-                }
-                else {
-                    Proxy* landsc = new Proxy("F");
-                    field.addLand(i, j, landsc);
-                }
+	            if((j*i) % 3 == 1){
+		            Proxy* landsc = new Proxy("D");
+		            field.addLand(i, j, landsc);
+	            }
+	            else if ((j*i) % 2 == 0) {
+		            Proxy* landsc = new Proxy("R");
+		            field.addLand(i, j, landsc);
+	            }
+	            else {
+		            Proxy* landsc = new Proxy("F");
+		            field.addLand(i, j, landsc);
+	            }
             }
         }
     std::cout << field.getShortInfo() << std::endl;
@@ -113,7 +113,7 @@ void test2(){
                 field.addItem(i,j,range->createDire());
                 break;
             case 5:
-                field.addItem(i,j,range->createRadiant());
+                field.addUnit(i,j,range->createRadiant());
                 break;
 
             }
@@ -132,8 +132,8 @@ void test2(){
     base->addDragon(2,6);
     base->addKnight(3,5);
     base->addKnight(3,7);
-//    base->field->deleteItem(3,6);
-//    field.addItem(0,0,b1);
+//    base->field->deleteUnit(3,6);
+//    field.addUnit(0,0,b1);
     std::cout << field.getShortInfo() << std::endl;
     b1->move(3,3);
     std::cout << field.getShortInfo() << std::endl;

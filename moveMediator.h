@@ -8,7 +8,7 @@ class MoveMediator
 {
 private:
     Field* field;
-    Unit* FieldItem;
+    Unit* fieldItem;
 public:
     MoveMediator(Field*, Unit*);
     void movObj(Unit*, int, int);
