@@ -9,7 +9,6 @@
 #include "../Landscape/landscape.h"
 #include "fieldItem.h"
 #include "../Landscape/proxy.h"
-class MoveMediator;
 class Field{
 public:
     Field(unsigned width, unsigned height, unsigned itemLimit);

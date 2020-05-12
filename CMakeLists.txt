@@ -16,4 +16,4 @@ add_executable(gameOfTheYear
         Units/Factory/direFactory.h Units/Factory/radiantFactory.h
         Landscape/proxy.cpp Landscape/proxy.h
         NeutralObject/neutralObj.h NeutralObject/weapon.h
-        NeutralObject/armor.h NeutralObject/elixir.h NeutralObject/curse.h NeutralObject/context.h Field/fieldItem.cpp Field/fieldItem.h)
+        NeutralObject/armor.h NeutralObject/elixir.h NeutralObject/curse.h NeutralObject/context.h Field/fieldItem.cpp Field/fieldItem.h Base/composite.h)

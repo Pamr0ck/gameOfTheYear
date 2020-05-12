@@ -2,6 +2,10 @@
 #include "Field/field.h"
 #include "Units/unit.h"
 #include "Base/base.h"
+
+// TODO расскрашивать юнитов с зеленый и красный
+// TODO component from {} to \t
+// base/compositeunit
 /*
  * объяснить virtual = 0;
 const  создание +
