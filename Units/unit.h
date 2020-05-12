@@ -4,10 +4,7 @@
 
 #ifndef UNIT_H
 #define UNIT_H
-
-#include "../Field/field.h"
-
-
+#include <iostream>
 #include "characteristics.h"
 #include "../moveMediator.h"
 #include "../subject.h"

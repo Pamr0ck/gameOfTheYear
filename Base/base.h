@@ -19,8 +19,10 @@ public:
     Unit* createUnit(std::string);
     void addUnit(Unit* u);
     void delUnit(Unit* u);
-    Unit* getCurrUnit();
+//	void delUnit(Subject* u);
+//    Unit* getCurrUnit();
     bool getDamage(int);
+    std::string printUnits();
 
     std::string shortName();
 //    void setMoveMediator(MoveMediator *value){};

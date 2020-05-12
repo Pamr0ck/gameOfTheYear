@@ -33,12 +33,28 @@ public:
 	bool addUnit (Unit *item, unsigned x, unsigned y, int baseNum);
 	bool deleteUnit(unsigned x, unsigned y);
 
-	bool deleteItem(FieldItem *item);
-
+//	bool deleteItem(FieldItem *item);
 
 	Base* getBase()const;
-//	bool moveItem(FieldItem *item, int x, int y);
+
+	bool addNeutral(NeutralObj*, unsigned, unsigned);
+	bool deleteNeutral(unsigned, unsigned);
+
 	std::string getAbout(unsigned x, unsigned y);
+	FieldItem* getCell(unsigned x, unsigned y);
+	FieldItem* findUnit(Unit *unit);
+	void update(Subject *);
+	void deleteUnit(Subject*);
+	void setBase(Base*);
+	string printBase(Base *base);
+
+	string getUnitMap();
+	string getLandMap();
+	string getNeutralMap();
+
+
+//	bool moveItem(FieldItem *item, int x, int y);
+//	std::string getAbout(unsigned x, unsigned y);
 	std::string getShortInfo();
 	FieldItem *getItem(unsigned x, unsigned y) const;
 	unsigned getItemCounter() const;
@@ -63,7 +79,7 @@ private:
 class FieldIterator
 {
 public:
-    FieldIterator( const Field *field);
+    FieldIterator(const Field *field);
     bool isActive() const;
     FieldItem *operator->() const;
     FieldItem *operator++();

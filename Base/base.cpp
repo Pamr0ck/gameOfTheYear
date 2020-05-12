@@ -127,3 +127,12 @@ bool Base::getDamage (int numb) {
 	}
 	return false;
 }
+
+std::string Base::printUnits ()
+{
+	return units->getUnits();
+}
+
+//void Base::delUnit (Subject *u) {
+//
+//}

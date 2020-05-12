@@ -69,6 +69,66 @@ Field::Field(Field &&field)
 
 }
 
+Field::~Field() {
+	for (unsigned i = 0; i < width; i++){
+		for (unsigned j = 0; j < height; j++)
+			delete items[i][j];
+		delete[] items[i];
+	}
+	if (items)
+		delete[] items;
+}
+
+Field &Field::operator=(const Field &field) {
+	if (&field == this)
+		return *this;
+	for (unsigned i = 0; i < width ; i++) {
+		for (unsigned j = 0; j < height; j++)
+			items[i][j];
+		delete [] items[i];
+	}
+	delete [] items;
+	items = new FieldItem**[width];
+
+	for (unsigned i = 0; i < width; i++) {
+		items[i] = new FieldItem*[height];
+		for (unsigned j = 0; j< height; j++) {
+			if (field.items[i][j] != nullptr) {
+				items[i][j] = field.items[i][j];
+				if (!items[i][j]->isUnitFree())
+					new MoveMediator(this, items[i][j]->getUnit());
+			} else {
+				items[i][j] = nullptr;
+			}
+		}
+	}
+
+	delete base;
+	base = field.base;
+	return *this;
+}
+
+Field &Field::operator=(Field &&field) {
+	if (&field == this)
+		return *this;
+
+	for (unsigned i = 0; i < width; i++){
+		for (unsigned j = 0; j < height; j++)
+			delete items[i][j];
+		delete [] items[i];
+	}
+	delete [] items;
+
+	items = field.items;
+	itemCounter = field.itemCounter;
+	for(unsigned i=0; i < width; i++)
+		delete []  field.items[i];
+	delete [] field.items;
+	base = field.base;
+	return *this;
+}
+
+
 unsigned Field::getWidth() const
 {
     return  width;
@@ -84,14 +144,45 @@ unsigned Field::getItemCounter() const
     return itemCounter;
 }
 
-Field::~Field() {
-    for (unsigned i = 0; i < width; i++){
-        for (unsigned j = 0; j < height; j++)
-	        deleteUnit(i, j);
-        delete[] items[i];
-    }
-    if (items)
-        delete[] items;
+void Field::setMoveMediator(MoveMediator *value)
+{
+	moveMediator = value;
+}
+
+unsigned Field::getMaxItems () const {
+	return maxItems;
+}
+
+bool Field::isCellFreeForUnit (size_t x, size_t y) {
+	return items[x][y]->isUnitFree();
+}
+
+
+bool Field::moveUnit (Unit * item, int x, int y)  {
+	for(auto i = 0; i < width; i++ )
+		for(auto j = 0; j < height; j++ )
+			if (items[i][j]->getUnit() == item)
+			{
+				if (x + i >= width ||
+				    y + j >= height ||
+				    x + i < 0 || y - j < 0)
+					throw out_of_range("check position coordinates of unit");
+				Proxy* p = new Proxy(items[x+i][y+j]->getLandscape());
+				if (!p->canMove(item))
+					throw invalid_argument("item can't move to this land");
+				if(!item->isMovable())
+					throw invalid_argument("item  must be movable");
+				if(!items[x+i][y+j]->isUnitFree())
+					throw invalid_argument("there is other unit on this cell ");
+				if(items[x+i][y+j]->getNeutral())
+				{
+					*(items[x+i][y+j]->getNeutral()) += *(items[i][j]->getUnit());
+					items[x+i][y+j]->delNeutral();
+				}
+				swap(items[x+i][y+j], items[i][j]);
+				return true;
+			}
+	return false;
 }
 
 bool Field::addUnit (Unit *item, unsigned x, unsigned y, int baseNum) {
@@ -121,151 +212,262 @@ bool Field::addUnit (Unit *item, unsigned x, unsigned y, int baseNum) {
 
 bool Field::deleteUnit(unsigned x, unsigned y) {
     if (x >= width || y >= height)
-        throw std::out_of_range("coords are out of field");
-    if (items[x][y] == nullptr)
+        throw out_of_range("coords are out of field");
+    if (items[x][y]->isUnitFree())
         return false;
-    delete items[x][y];
-    items[x][y] = nullptr;
+    if (base)
+    	base->delUnit(items[x][y]->getUnit());
+
+	items[x][y]->getUnit()->detach(this);
+	items[x][y]->delUnit();
     itemCounter--;
     return true;
 }
 
-bool Field::deleteItem(FieldItem *item) {
-    for (unsigned i = 0; i < width; i++){
-        for (unsigned j = 0; j < height ; j++) {
-            if (items[i][j] == item){
-                delete items[i][j];
-                items[i][j] = nullptr;
-                itemCounter--;
-                return true;
-            }
-        }
-    }
-    throw  std::invalid_argument("there is no items like that");
+Base *Field::getBase () const {
+	return base;
 }
 
-FieldItem *Field::getItem(unsigned x, unsigned y) const
+bool Field::addNeutral (NeutralObj * item, unsigned x, unsigned y) {
+	if(x >= width || y >= height){
+		throw out_of_range("check position coordinates of unit");
+	}
+	if(!item){
+		throw invalid_argument("item can't be empty");
+	}
+	if(items[x][y]->getNeutral()){
+		throw invalid_argument("this cell of field have unit");
+	}
+	items[x][y]->addNeutral(item);
+	return true;
+}
+
+bool Field::deleteNeutral (unsigned x, unsigned y) {
+	if(x >= width || y >= height){
+		throw out_of_range("check coordinates for delete item");
+	}
+	if(!items[x][y]->getNeutral()){
+		return false;
+	}
+	items[x][y]->delNeutral();
+	return true;
+}
+
+FieldItem *Field::getCell (unsigned int x, unsigned int y) {
+	if (x >= width || y >= height)
+		throw out_of_range("coords are not on field");
+	return items[x][y];
+}
+
+FieldItem *Field::findUnit (Unit *unit) {
+	for (int i = 0; i < width; i++){
+		for (int j = 0; j < height; j++){
+			if (items[i][j]->getUnit() == unit){
+				return items[i][j];
+			}
+		}
+	}
+	return nullptr;
+}
+
+//void Field::update (Subject * subject)
+//{
+//	deleteUnit(subject);
+//}
+
+//void Field::deleteUnit (Subject * unit)
+//{
+//	for (int i = 0; i < width; i++) {
+//		for (int j = 0; j < height; j++) {
+//			if (unit == items[i][j]->getUnit()) {
+//				items[i][j]->delUnit();
+//				itemCounter--;
+//				if (base)
+//					base->delUnit(unit);
+////				if (base2)
+////					base2->deleteUnit(unit);
+//				unit->detach(this);
+//				return;
+//			}
+//		}
+//	}
+//}
+
+void Field::setBase (Base * base) {
+	if(base->getMaxCount() <= 0)
+		throw invalid_argument("maxCount must be >0");
+	if(base->getHealth() <= 0)
+		throw invalid_argument("health must be >0");
+	if(base->getX() > width)
+		throw invalid_argument("width must be < curr width");
+	if(base->getY() > height)
+		throw invalid_argument("height must be < curr height");
+	if (base->getBaseNumb() == 1)
+		this->base = new Base(base->getMaxCount(), base->getHealth(),
+		         base->getX(), base->getY(), base->getBaseNumb());
+	else throw invalid_argument("there is a base");
+
+}
+
+string Field::printBase (Base *base) {
+	return base->printUnits();
+}
+
+string Field::getUnitMap () {
+	std::string output = "";
+	auto baseX = base->getX();
+	auto baseY = base->getY();
+	for (unsigned i=0; i<width; i++)
+	{
+		for (unsigned j=0; j<height; j++)
+		{
+			if( i == baseX && j == baseY)
+				output += base->shortName();
+
+			else if (!items[i][j]->isUnitFree())
+				output += items[i][j]->getUnit()->getName() + "\t";
+			else
+				output += "empty\t";
+		}
+		output += "\n";
+	}
+	return output;
+}
+
+string Field::getNeutralMap()
 {
-    if (x >= width || y >= height)
-        throw std::out_of_range("coords are out of field");
-    return items[x][y];
+	std::string output = "";
+	auto baseX = base->getX();
+	auto baseY = base->getY();
+	for (unsigned i=0; i<width; i++)
+	{
+		for (unsigned j=0; j<height; j++)
+		{
+			if( i == baseX && j == baseY)
+				output += base->shortName();
+
+			else if (!items[i][j]->getNeutral())
+				output += items[i][j]->getNeutral()-> characteristics() + "\t";
+			else
+				output += "empty\t";
+		}
+		output += "\n";
+	}
+	return output;
 }
 
-Field &Field::operator=(const Field &field) {
-    if (&field == this)
-        return *this;
-    for (unsigned i = 0; i < width ; i++) {
-        for (unsigned j = 0; j < height; j++)
-	        deleteUnit(i, j);
-        delete [] items[i];
-    }
-    delete [] items;
-    items = new FieldItem**[width];
-    for (unsigned i = 0; i < width; i++) {
-        items[i] = new FieldItem*[height];
-        for (unsigned j = 0; j< height; j++)
-            items[i][j] = nullptr;
-    }
-    for (unsigned i=0; i<width; i++){
-        for (unsigned j=0; j<height; j++){
-            if (field.items[i][j] != nullptr){
-                items[i][j] = field.items[i][j]->itemCopy();
-                 new MoveMediator(this, items[i][j]);
-            }
-        }
-    }
-    return *this;
+string Field::getLandMap () {
+	std::string output = "";
+	auto baseX = base->getX();
+	auto baseY = base->getY();
+	for (unsigned i=0; i<width; i++)
+	{
+		for (unsigned j=0; j<height; j++)
+		{
+			if( i == baseX && j == baseY)
+				output += base->shortName();
+
+			else if (!items[i][j]->getLandscape())
+				output += items[i][j]->getLandscape()->getType() + "\t";
+			else
+				output += "empty\t";
+		}
+		output += "\n";
+	}
+	return output;
 }
 
-Field &Field::operator=(Field &&field) {
-    if (&field == this)
-        return *this;
-    for (unsigned i = 0; i < width; i++){
-        for (unsigned j = 0; j < height; j++)
-	        deleteUnit(i, j);
-        delete [] items[i];
-    }
-    items = new FieldItem**[width];
-    for (unsigned i = 0; i < width; i++){
-        items[i] = new FieldItem*[height];
-        for (unsigned j = 0; j < height; j++)
-        {
-            items[i][j] = field.items[i][j];
-            field.items[i][j] = nullptr;
-        }
-    }
-    return *this;
-}
+//std::string Field::getShortInfo() {
+//	std::string output = "";
+//	for (unsigned i=0; i<width; i++)
+//	{
+//		for (unsigned j=0; j<height; j++)
+//		{
+//			if (items[i][j] != nullptr)
+//				output += items[i][j]->shortName() + "\t";
+//			else
+//				output += land[i][j]->getType() + "\t";
+//		}
+//		output += "\n";
+//	}
+//	return output;
+//}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+//bool Field::deleteItem(FieldItem *item) {
+//    for (unsigned i = 0; i < width; i++){
+//        for (unsigned j = 0; j < height ; j++) {
+//            if (items[i][j] == item){
+//                delete items[i][j];
+//                items[i][j] = nullptr;
+//                itemCounter--;
+//                return true;
+//            }
+//        }
+//    }
+//    throw  std::invalid_argument("there is no items like that");
+//}
+
+//FieldItem *Field::getItem(unsigned x, unsigned y) const
+//{
+//    if (x >= width || y >= height)
+//        throw std::out_of_range("coords are out of field");
+//    return items[x][y];
+//}
+
 
 //void Field::addLand(unsigned x, unsigned y, Proxy *landscape)
 //{
 //    land[x][y] = landscape;
 //}
 
-std::string Field::getShortInfo() {
-    std::string output = "";
-    for (unsigned i=0; i<width; i++)
-    {
-        for (unsigned j=0; j<height; j++)
-        {
-            if (items[i][j] != nullptr)
-                output += items[i][j]->shortName() + "\t";
-            else
-                output += land[i][j]->getType() + "\t";
-        }
-        output += "\n";
-    }
-    return output;
-}
 
-std::string Field::getAbout(unsigned x, unsigned y)
-{
-    if (x >= width || y >= height)
-        return "X=" + std::to_string(x) + ",Y=" + std::to_string(y) + ": is out of field\n";
-    if (items[x][y] == nullptr)
-        return "X=" + std::to_string(x) + ",Y=" + std::to_string(y) + ": no item at this position\n";
-    return "At X=" + std::to_string(x) + ",Y=" + std::to_string(y) + " is set:\n" + items[x][y]->about();
-}
+//std::string Field::getAbout(unsigned x, unsigned y)
+//{
+//    if (x >= width || y >= height)
+//        return "X=" + std::to_string(x) + ",Y=" + std::to_string(y) + ": is out of field\n";
+//    if (items[x][y] == nullptr)
+//        return "X=" + std::to_string(x) + ",Y=" + std::to_string(y) + ": no item at this position\n";
+//    return "At X=" + std::to_string(x) + ",Y=" + std::to_string(y) + " is set:\n" + items[x][y]->about();
+//}
 
-void Field::setMoveMediator(MoveMediator *value)
-{
-    moveMediator = value;
-}
 
-unsigned Field::getMaxItems () const {
-	return maxItems;
-}
-
-bool Field::moveUnit (Unit * item, int x, int y)  {
-	for(auto i = 0; i < width; i++ )
-		for(auto j = 0; j < height; j++ )
-			if (items[i][j]->getUnit() == item)
-			{
-				if (x + i >= width ||
-					y + j >= height ||
-					x + i < 0 || y - j < 0)
-					throw out_of_range("check position coordinates of unit");
-				Proxy* p = new Proxy(items[x+i][y+j]->getLandscape());
-				if (!p->canMove(item))
-					throw invalid_argument("item can't move to this land");
-				if(!item->isMovable())
-					throw invalid_argument("item  must be movable");
-				if(!items[x+i][y+j]->isUnitFree())
-					throw invalid_argument("there is other unit on this cell ");
-				if(items[x+i][y+j]->getNeutral())
-				{
-					*(items[x+i][y+j]->getNeutral()) += *(items[i][j]->getUnit());
-					items[x+i][y+j]->delNeutral();
-				}
-				swap(items[x+i][y+j], items[i][j]);
-				return true;
-			}
-	return false;
-}
-
-bool Field::isCellFreeForUnit (size_t x, size_t y) {
-	return items[x][y]->isUnitFree();
-}
 
 FieldIterator::FieldIterator(const Field *field)
     : active(true), field(field), curWidth(0), curHeight(0){
@@ -306,7 +508,7 @@ FieldItem *FieldIterator::operator++()
 //    this->item->setMoveMediator(this);
 //}
 
-void MoveMediator::notify(FieldItem *sender, int x, int y)
-{
-    field->moveItem(sender, x, y);
-}
+//void MoveMediator::notify(FieldItem *sender, int x, int y)
+//{
+//    field->moveItem(sender, x, y);
+//}

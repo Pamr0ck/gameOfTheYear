@@ -31,14 +31,12 @@ field.h
 /home/kot/ETU/OOP/gameOfTheYear/Field/field.h
 
 /home/kot/ETU/OOP/gameOfTheYear/Field/field.h
-../libraries.h
-/home/kot/ETU/OOP/gameOfTheYear/libraries.h
-../Landscape/landscape.h
-/home/kot/ETU/OOP/gameOfTheYear/Landscape/landscape.h
 fieldItem.h
 /home/kot/ETU/OOP/gameOfTheYear/Field/fieldItem.h
 ../Landscape/proxy.h
 /home/kot/ETU/OOP/gameOfTheYear/Landscape/proxy.h
+../Base/base.h
+/home/kot/ETU/OOP/gameOfTheYear/Base/base.h
 
 /home/kot/ETU/OOP/gameOfTheYear/Field/fieldItem.cpp
 fieldItem.h
@@ -148,10 +146,6 @@ characteristics.h
 ../subject.h
 /home/kot/ETU/OOP/gameOfTheYear/subject.h
 
-/home/kot/ETU/OOP/gameOfTheYear/libraries.h
-string
--
-
 /home/kot/ETU/OOP/gameOfTheYear/main.cpp
 Field/field.h
 /home/kot/ETU/OOP/gameOfTheYear/Field/field.h
@@ -163,6 +157,10 @@ Base/base.h
 /home/kot/ETU/OOP/gameOfTheYear/moveMediator.h
 
 /home/kot/ETU/OOP/gameOfTheYear/observer.h
+
+/home/kot/ETU/OOP/gameOfTheYear/subject.cpp
+subject.h
+/home/kot/ETU/OOP/gameOfTheYear/subject.h
 
 /home/kot/ETU/OOP/gameOfTheYear/subject.h
 vector

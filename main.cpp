@@ -12,12 +12,7 @@ const  создание +
 const iteraror +
 */
 void test1(){
-    UnitFactory * melee = new MeleeFactory;
-    UnitFactory * support = new SupportFactory;
-    auto *d1 = melee->createDire();
-    auto *r1 = melee->createRadiant();
-    auto *d2 = support->createDire();
-    auto *r2 = support->createRadiant();
+
     std::cout << "Hello, this is my first game\n";
     Field field(10,10,4);
     try {
