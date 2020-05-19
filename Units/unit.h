@@ -8,6 +8,7 @@
 #include "characteristics.h"
 #include "../moveMediator.h"
 #include "../subject.h"
+#include "enums.h"
 
 //class IObserver : public FieldItem
 //{
@@ -34,6 +35,7 @@ public:
     virtual void move(int, int);
 
     std::string getType() const;
+    virtual UnitType getEnumType() const = 0;
 
     virtual Characteristics* getCharacteristics()const;
 

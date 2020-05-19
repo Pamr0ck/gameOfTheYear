@@ -23,13 +23,7 @@ public:
     Unit* getUnit() const;
     NeutralObj* getNeutral() const;
     Landscape* getLandscape() const;
-//    std::string characteristics(unsigned, unsigned);
-//    virtual bool isMovable() = 0;
-//    virtual std::string about() = 0;
-//    virtual std::string shortName() = 0;
-//    virtual FieldItem* itemCopy() = 0;
-//    virtual void move(int x, int y) = 0;
-//    virtual void setMoveMediator(MoveMediator *value) = 0;
+
 private:
     Unit* unit;
     NeutralObj* neutral;

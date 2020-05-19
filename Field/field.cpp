@@ -254,11 +254,6 @@ bool Field::deleteNeutral (unsigned x, unsigned y) {
 	return true;
 }
 
-FieldItem *Field::getCell (unsigned int x, unsigned int y) {
-	if (x >= width || y >= height)
-		throw out_of_range("coords are not on field");
-	return items[x][y];
-}
 
 FieldItem *Field::findUnit (Unit *unit) {
 	for (int i = 0; i < width; i++){
@@ -275,24 +270,6 @@ void Field::update (Subject * subject)
 {
 //	deleteUnit(subject);
 }
-
-//void Field::deleteUnit (Subject * unit)
-//{
-//	for (int i = 0; i < width; i++) {
-//		for (int j = 0; j < height; j++) {
-//			if (unit == items[i][j]->getUnit()) {
-//				items[i][j]->delUnit();
-//				itemCounter--;
-//				if (base)
-//					base->delUnit(unit);
-////				if (base2)
-////					base2->deleteUnit(unit);
-//				unit->detach(this);
-//				return;
-//			}
-//		}
-//	}
-//}
 
 void Field::setBase (Base * base) {
 	if(base->getMaxCount() <= 0)
@@ -327,26 +304,7 @@ string Field::getUnitMap () {
 			else if (!items[i][j]->isUnitFree()) {
 				auto tmp = items[i][j]->getUnit()->getName();
 				output += items[i][j]->getUnit()->getName() + "\t";
-			}else
-				output += "empty\t";
-		}
-		output += "\n";
-	}
-	return output;
-}
-
-string Field::getNeutralMap()
-{
-	std::string output = "";
-	auto baseX = base->getX();
-	auto baseY = base->getY();
-	for (unsigned i=0; i<width; i++)
-	{
-		for (unsigned j=0; j<height; j++)
-		{
-			if( i == baseX && j == baseY)
-				output += base->shortName() + "\t";
-
+			}
 			else if (items[i][j]->getNeutral())
 				output += items[i][j]->getNeutral()-> characteristics() + "\t";
 			else
@@ -356,6 +314,28 @@ string Field::getNeutralMap()
 	}
 	return output;
 }
+
+//string Field::getNeutralMap()
+//{
+//	std::string output = "";
+//	auto baseX = base->getX();
+//	auto baseY = base->getY();
+//	for (unsigned i=0; i<width; i++)
+//	{
+//		for (unsigned j=0; j<height; j++)
+//		{
+//			if( i == baseX && j == baseY)
+//				output += base->shortName() + "\t";
+//
+//			else if (items[i][j]->getNeutral())
+//				output += items[i][j]->getNeutral()-> characteristics() + "\t";
+//			else
+//				output += "empty\t";
+//		}
+//		output += "\n";
+//	}
+//	return output;
+//}
 
 string Field::getLandMap () {
 	std::string output = "";
@@ -388,85 +368,6 @@ FieldItem *Field::getItem (unsigned int x, unsigned int y) const {
     return items[x][y];
 }
 
-//std::string Field::getShortInfo() {
-//	std::string output = "";
-//	for (unsigned i=0; i<width; i++)
-//	{
-//		for (unsigned j=0; j<height; j++)
-//		{
-//			if (items[i][j] != nullptr)
-//				output += items[i][j]->shortName() + "\t";
-//			else
-//				output += land[i][j]->getType() + "\t";
-//		}
-//		output += "\n";
-//	}
-//	return output;
-//}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-//bool Field::deleteItem(FieldItem *item) {
-//    for (unsigned i = 0; i < width; i++){
-//        for (unsigned j = 0; j < height ; j++) {
-//            if (items[i][j] == item){
-//                delete items[i][j];
-//                items[i][j] = nullptr;
-//                itemCounter--;
-//                return true;
-//            }
-//        }
-//    }
-//    throw  std::invalid_argument("there is no items like that");
-//}
-
-//FieldItem *Field::getItem(unsigned x, unsigned y) const
-//{
-//    if (x >= width || y >= height)
-//        throw std::out_of_range("coords are out of field");
-//    return items[x][y];
-//}
-
-
-//void Field::addLand(unsigned x, unsigned y, Proxy *landscape)
-//{
-//    land[x][y] = landscape;
-//}
 
 
 std::string Field::getAbout(unsigned x, unsigned y)

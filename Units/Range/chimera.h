@@ -18,6 +18,7 @@ public:
     Unit *itemCopy(){
         return new Chimera(*this);
     }
+	UnitType getEnumType() const{return  CHIMERA;}
 };
 
 #endif //CHIMERA_H

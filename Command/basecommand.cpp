@@ -13,7 +13,7 @@ map<string, int> BaseCommand::baseInfo () {
 	info["max unit in base"] = base->getMaxCount();
 	info["base health"] = base->getHealth();
 	// TODO вывод всех юнитов
-	return map<string, int>();
+	return info;
 }
 
 map<string, int> BaseCommand::addUnit () {

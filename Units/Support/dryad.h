@@ -20,6 +20,7 @@ public:
     Unit *itemCopy(){
         return new Dryad(*this);
     }
+	UnitType getEnumType() const{return  DRYAD;}
 };
 
 #endif //DRYAD_H

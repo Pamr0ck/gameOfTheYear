@@ -102,8 +102,3 @@ Landscape *FieldItem::getLandscape () const
     return land;
 }
 
-//std::string FieldItem::characteristics (unsigned int x, unsigned int y)
-//{
-//    return std::string();
-//}
-//

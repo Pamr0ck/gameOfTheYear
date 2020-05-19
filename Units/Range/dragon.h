@@ -18,6 +18,7 @@ public:
     Unit *itemCopy(){
         return new Dragon(*this);
     }
+	UnitType getEnumType() const{return  DRAGON;}
 };
 
 #endif //DRAGON_H

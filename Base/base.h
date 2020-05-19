@@ -26,16 +26,6 @@ public:
     std::string printUnits();
 
     std::string shortName();
-//    void setMoveMediator(MoveMediator *value){};
-//    std::string about(){return "";};
-//    void move(int x, int y) {};
-//    bool addUnit(unsigned x, unsigned y, FieldItem *item);
-//    FieldItem *itemCopy(){
-//        return new Base();
-//    };
-//    unsigned getItemCounter() const {
-//        return itemCounter;
-//    }
 private:
     std::string name;
     int baseNumb;

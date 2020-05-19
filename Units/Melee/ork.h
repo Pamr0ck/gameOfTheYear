@@ -18,6 +18,7 @@ public:
     Unit *itemCopy(){
         return new Ork(*this);
     }
+	UnitType getEnumType() const{return  ORK;}
 };
 
 #endif //ORK_H

@@ -41,7 +41,7 @@ public:
 	bool deleteNeutral(unsigned, unsigned);
 
 	std::string getAbout(unsigned x, unsigned y);
-	FieldItem* getCell(unsigned x, unsigned y);
+//	FieldItem* getCell(unsigned x, unsigned y);
 	FieldItem* findUnit(Unit *unit);
 	void update(Subject *);
 	void deleteUnit(Subject*);
@@ -50,17 +50,16 @@ public:
 
 	string getUnitMap();
 	string getLandMap();
-	string getNeutralMap();
-
-
-//	bool moveItem(FieldItem *item, int x, int y);
-//	std::string getAbout(unsigned x, unsigned y);
-	std::string getShortInfo();
 	FieldItem *getItem(unsigned x, unsigned y) const;
 	unsigned getItemCounter() const;
+	//string getNeutralMap();
 
 
-    void addLand(unsigned x, unsigned y, Proxy *landscape);
+//	std::string getShortInfo();
+
+
+
+//    void addLand(unsigned x, unsigned y, Proxy *landscape);
 
     ~Field();
 

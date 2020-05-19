@@ -17,6 +17,7 @@ public:
     Unit *itemCopy(){
         return new Knight(*this);
     }
+	UnitType getEnumType() const{return  KNIGHT;}
 };
 
 

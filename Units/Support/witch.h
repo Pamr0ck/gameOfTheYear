@@ -20,5 +20,6 @@ public:
     Unit *itemCopy(){
         return new Witch(*this);
     }
+	UnitType getEnumType() const{return  WITCH;}
 };
 #endif //WITCH_H
