@@ -11,6 +11,7 @@ class Chimera : public Range {
 public:
     Chimera(){
         name = "Chimera";
+	    characteristics = new Characteristics();
         characteristics->setAll(1000, 80, 50);
     };
     std::string getName() {return name;}

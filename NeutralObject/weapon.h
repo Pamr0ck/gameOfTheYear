@@ -30,7 +30,7 @@ public:
         weapon->use(unit);
     }
 
-    std::string characteristic() const {return "weapon";}
+    std::string characteristics() const {return "weapon";}
 
     std::string getType() const {return "neutral";}
 };

@@ -52,7 +52,7 @@ std::string Proxy::getType() const
         case 'D':
             return "_ǂ___@_";
         case 'F':
-            return "↑↑↑_↑↑_↑";
+            return "↑↑_↑↑_↑";
     }
     return "ERROR";
 

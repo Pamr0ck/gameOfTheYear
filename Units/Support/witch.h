@@ -13,6 +13,7 @@ public:
     Witch()
     {
         name = "Witch";
+	    characteristics = new Characteristics();
         characteristics->setAll(1500, 35, 60);
     };
     std::string getName() {return name;}

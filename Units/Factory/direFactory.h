@@ -12,6 +12,7 @@
 
 class DireFactory: public UnitFactory
 {
+public:
     Melee* createMelee() {return  new Ork();};
     Support* createSupport() {return  new Witch();}
     Range* createRange() {return new Chimera();}

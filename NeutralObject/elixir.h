@@ -13,14 +13,14 @@ public:
     virtual void use(Unit&) = 0;
 };
 
-class GetWeapon : public NeutralObj
+class GetElixir : public NeutralObj
 {
 private:
     Elixir* elixir;
 public:
-    GetWeapon(Elixir* elixir) : elixir(elixir) {}
+    GetElixir(Elixir* elixir) : elixir(elixir) {}
 
-    ~GetWeapon()
+    ~GetElixir()
     {
         delete elixir;
     }
@@ -30,7 +30,7 @@ public:
         elixir->use(unit);
     }
 
-    std::string characteristic() const {return "elixir";}
+    std::string characteristics() const {return "elixir";}
 
     std::string getType() const {return "neutral";}
 };

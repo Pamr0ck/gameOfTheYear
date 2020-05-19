@@ -33,11 +33,11 @@ public:
 	std::string getUnits()
 	{
 		std::string out;
-		out += "\t";
+		out += "{";
 		for (auto i : children) {
 			out += i->getUnits();
 		}
-		out += "\n";
+		out += "}";
 		return out;
 	}
 	Component* getChildren(unsigned index)
@@ -69,11 +69,11 @@ public:
 	std::string getUnits ()
 	{
 		std::string out;
-		out += "\t";
+		out += "{";
 		for (auto i : units) {
-			out += i->getName() + "\n";
+			out += i->getName() ;
 		}
-		out += "\n";
+		out += "}";
 		return out;
 	}
 	void addUnit(Unit* unit)

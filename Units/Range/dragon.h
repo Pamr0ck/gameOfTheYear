@@ -11,6 +11,7 @@ public:
     Dragon()
     {
         name = "Dragon";
+	    characteristics = new Characteristics();
         characteristics->setAll(1200, 100, 90);
     };
     std::string getName() {return name;}

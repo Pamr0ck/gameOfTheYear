@@ -85,7 +85,7 @@ void Base::addUnit (Unit *u) {
 		units->getChildren(1)->getChildren(0)->addUnit(u);
 	else if (unitName == "Dryad")
 		units->getChildren(2)->getChildren(0)->addUnit(u);
-	else if (unitName == "Ork")
+	else if (unitName == "Orkk")
 		units->getChildren(0)->getChildren(1)->addUnit(u);
 	else if (unitName == "Chimera")
 		units->getChildren(1)->getChildren(1)->addUnit(u);
@@ -104,14 +104,14 @@ void Base::delUnit (Unit *u) {
 		units->getChildren(1)->getChildren(0)->removeUnit(u);
 	else if (unitName == "Dryad")
 		units->getChildren(2)->getChildren(0)->removeUnit(u);
-	else if (unitName == "Ork")
+	else if (unitName == "Orkk")
 		units->getChildren(0)->getChildren(1)->removeUnit(u);
 	else if (unitName == "Chimera")
 		units->getChildren(1)->getChildren(1)->removeUnit(u);
 	else if (unitName == "Witch")
 		units->getChildren(2)->getChildren(1)->removeUnit(u);
 	unitCount--;
-	std::cout << "unit deleted";
+	std::cout << "\nunit deleted\n";
 
 }
 

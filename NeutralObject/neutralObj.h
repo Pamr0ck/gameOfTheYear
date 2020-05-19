@@ -10,7 +10,7 @@ class NeutralObj {
 public:
     virtual ~NeutralObj() = default;
     virtual void operator += (Unit&) = 0;
-    virtual std::string characteristics() = 0;
+    virtual std::string characteristics() const = 0;
 
 };
 

@@ -11,6 +11,7 @@
 
 class RadiantFactory: public UnitFactory
 {
+public:
     Melee* createMelee() {return  new Knight();};
     Support* createSupport() {return  new Dryad();}
     Range* createRange() {return new Dragon();}

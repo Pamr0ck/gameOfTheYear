@@ -10,6 +10,7 @@ class Knight : public Melee{
 public:
     Knight(){
         name = "Knight";
+	    characteristics = new Characteristics();
         characteristics->setAll(500, 20, 30);
     };
     std::string getName() {return name;}

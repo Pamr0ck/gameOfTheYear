@@ -70,7 +70,7 @@ private:
     const unsigned maxItems;
     unsigned itemCounter;
     FieldItem ***items;
-    MoveMediator *moveMediator;
+    MoveMediator *moveMediator = nullptr;
 
     Base* base;
 };

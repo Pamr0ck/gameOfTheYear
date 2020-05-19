@@ -30,7 +30,7 @@ public:
         curse->use(unit);
     }
 
-    std::string characteristic() const {return "curse";}
+    std::string characteristics() const {return "curse";}
 
     std::string getType() const {return "neutral";}
 };

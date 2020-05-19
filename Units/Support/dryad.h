@@ -13,6 +13,7 @@ public:
     Dryad()
     {
         name = "Dryad";
+	    characteristics = new Characteristics();
         characteristics->setAll(2000, 40, 45);
     };
     std::string getName() {return name;}

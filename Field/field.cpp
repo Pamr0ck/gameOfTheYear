@@ -192,9 +192,10 @@ bool Field::addUnit (Unit *item, unsigned x, unsigned y, int baseNum) {
         throw out_of_range("coords are out of field");
     if (!item)
     	throw invalid_argument("item can't be empty");
-    if (items[x][y]->isUnitFree())
+    if (!items[x][y]->isUnitFree())
         throw std::invalid_argument("field cell is have unit");
-	auto* p = new Proxy(items[x][y]->getLandscape());
+
+    auto* p = new Proxy(items[x][y]->getLandscape());
 	if (!p->canMove(item))
 		throw invalid_argument("item  can't add to this landscape");
 	//Base* base = (baseNum == 1) ? base;
@@ -270,10 +271,10 @@ FieldItem *Field::findUnit (Unit *unit) {
 	return nullptr;
 }
 
-//void Field::update (Subject * subject)
-//{
+void Field::update (Subject * subject)
+{
 //	deleteUnit(subject);
-//}
+}
 
 //void Field::deleteUnit (Subject * unit)
 //{
@@ -322,11 +323,11 @@ string Field::getUnitMap () {
 		for (unsigned j=0; j<height; j++)
 		{
 			if( i == baseX && j == baseY)
-				output += base->shortName();
-
-			else if (!items[i][j]->isUnitFree())
+				output += base->shortName() + "\t";
+			else if (!items[i][j]->isUnitFree()) {
+				auto tmp = items[i][j]->getUnit()->getName();
 				output += items[i][j]->getUnit()->getName() + "\t";
-			else
+			}else
 				output += "empty\t";
 		}
 		output += "\n";
@@ -344,9 +345,9 @@ string Field::getNeutralMap()
 		for (unsigned j=0; j<height; j++)
 		{
 			if( i == baseX && j == baseY)
-				output += base->shortName();
+				output += base->shortName() + "\t";
 
-			else if (!items[i][j]->getNeutral())
+			else if (items[i][j]->getNeutral())
 				output += items[i][j]->getNeutral()-> characteristics() + "\t";
 			else
 				output += "empty\t";
@@ -364,17 +365,27 @@ string Field::getLandMap () {
 	{
 		for (unsigned j=0; j<height; j++)
 		{
-			if( i == baseX && j == baseY)
-				output += base->shortName();
+			if( i == baseX && j == baseY) {
+				output += base->shortName() + '\t';
+			}
 
-			else if (!items[i][j]->getLandscape())
-				output += items[i][j]->getLandscape()->getType() + "\t";
+			else if (items[i][j]->getLandscape()) {
+				auto *tmp = new Proxy(items[i][j]->getLandscape());
+				output += tmp->getType() + "\t";
+//				delete tmp;
+			}
 			else
 				output += "empty\t";
 		}
 		output += "\n";
 	}
 	return output;
+}
+
+FieldItem *Field::getItem (unsigned int x, unsigned int y) const {
+	if (x >= width || y >= height)
+        throw std::out_of_range("coords are out of field");
+    return items[x][y];
 }
 
 //std::string Field::getShortInfo() {
@@ -458,14 +469,14 @@ string Field::getLandMap () {
 //}
 
 
-//std::string Field::getAbout(unsigned x, unsigned y)
-//{
-//    if (x >= width || y >= height)
-//        return "X=" + std::to_string(x) + ",Y=" + std::to_string(y) + ": is out of field\n";
-//    if (items[x][y] == nullptr)
-//        return "X=" + std::to_string(x) + ",Y=" + std::to_string(y) + ": no item at this position\n";
-//    return "At X=" + std::to_string(x) + ",Y=" + std::to_string(y) + " is set:\n" + items[x][y]->about();
-//}
+std::string Field::getAbout(unsigned x, unsigned y)
+{
+    if (x >= width || y >= height)
+        return "X=" + std::to_string(x) + ",Y=" + std::to_string(y) + ": is out of field\n";
+    if (items[x][y] == nullptr)
+        return "X=" + std::to_string(x) + ",Y=" + std::to_string(y) + ": no item at this position\n";
+    return "At X=" + std::to_string(x) + ",Y=" + std::to_string(y) + " is set:\n" + items[x][y]->getUnit()->about();
+}
 
 
 
@@ -501,14 +512,3 @@ FieldItem *FieldIterator::operator++()
     } while (field->getItem(curWidth, curHeight) == nullptr);
     return  field->getItem(curWidth, curHeight);
 }
-
-//MoveMediator::MoveMediator(Field *field, FieldItem *item)
-//    :field(field), item(item){
-//    this->field->setMoveMediator(this);
-//    this->item->setMoveMediator(this);
-//}
-
-//void MoveMediator::notify(FieldItem *sender, int x, int y)
-//{
-//    field->moveItem(sender, x, y);
-//}
