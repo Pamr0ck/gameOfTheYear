@@ -4,6 +4,7 @@
 #include "composite.h"
 #include "../Units/Factory/direFactory.h"
 #include "../Units/Factory/radiantFactory.h"
+#include "enums.h"
 
 class Base
 {
@@ -16,7 +17,7 @@ public:
     int getUnitCount() const;
     int getMaxCount() const;
     int getHealth() const;
-    Unit* createUnit(std::string);
+    Unit *createUnit (UnitType type);
     void addUnit(Unit* u);
     void delUnit(Unit* u);
 //	void delUnit(Subject* u);

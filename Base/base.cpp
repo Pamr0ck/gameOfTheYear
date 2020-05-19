@@ -46,7 +46,7 @@ int Base::getHealth () const {
 	return health;
 }
 
-Unit *Base::createUnit (std::string unitName) {
+Unit *Base::createUnit (UnitType type) {
 	Unit* unit = nullptr;
 	if (unitCount++ > maxCount)
 	{
@@ -54,17 +54,17 @@ Unit *Base::createUnit (std::string unitName) {
 		return nullptr;
 	}
 
-	if (unitName == "Knight")
+	if (type == KNIGHT)
 		unit = radiantFactory->createMelee();
-	else if (unitName == "Dragon")
+	else if (type == DRAGON)
 		unit = radiantFactory->createRange();
-	else if (unitName == "Dryad")
+	else if (type == DRYAD)
 		unit = radiantFactory->createSupport();
-	else if (unitName == "Ork")
+	else if (type == ORK)
 		unit = direFactory->createMelee();
-	else if (unitName == "Chimera")
+	else if (type == CHIMERA)
 		unit = direFactory->createRange();
-	else if (unitName == "Witch")
+	else if (type == WITCH)
 		unit = direFactory->createSupport();
 
 	addUnit(unit);

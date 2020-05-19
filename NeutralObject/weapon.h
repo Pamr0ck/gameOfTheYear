@@ -35,14 +35,7 @@ public:
     std::string getType() const {return "neutral";}
 };
 
-class Excalibur : public Weapon
-{
-public:
-    void use(Unit& unit)
-    {
-        unit.getCharacteristics()->setDamage(unit.getCharacteristics()->getDamage() + 100);
-    }
-};
+
 
 class Sting : public Weapon   // from Frodo with love
 {
@@ -61,7 +54,14 @@ public:
         unit.getCharacteristics()->setDamage(unit.getCharacteristics()->getDamage() + 70);
     }
 };
-
+class Excalibur : public Weapon
+{
+public:
+	void use(Unit& unit)
+	{
+		unit.getCharacteristics()->setDamage(unit.getCharacteristics()->getDamage() + 100);
+	}
+};
 
 
 

@@ -35,6 +35,16 @@ public:
     std::string getType() const {return "neutral";}
 };
 
+class Helmet : public Armor
+{
+public:
+	void use(Unit& unit)
+	{
+		unit.getCharacteristics()->setArmor(unit.getCharacteristics()->getArmor() + 20);
+	}
+};
+
+
 class MithrilHauberk : public Armor
 {
 public:
@@ -52,15 +62,5 @@ public:
         unit.getCharacteristics()->setArmor(unit.getCharacteristics()->getArmor() + 50);
     }
 };
-
-class Helmet : public Armor
-{
-public:
-    void use(Unit& unit)
-    {
-        unit.getCharacteristics()->setArmor(unit.getCharacteristics()->getArmor() + 20);
-    }
-};
-
 
 #endif //ARMOR_H
