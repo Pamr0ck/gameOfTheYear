@@ -35,7 +35,7 @@ public:
 
 //	bool deleteItem(FieldItem *item);
 
-	Base* getBase()const;
+//	Base* getBase()const;
 
 	bool addNeutral(NeutralObj*, unsigned, unsigned);
 	bool deleteNeutral(unsigned, unsigned);
@@ -45,7 +45,7 @@ public:
 	FieldItem* findUnit(Unit *unit);
 	void update(Subject *);
 	void deleteUnit(Subject*);
-	void setBase(Base*);
+//	void setBase(Base*);
 	string printBase(Base *base);
 
 	string getUnitMap();
@@ -71,7 +71,7 @@ private:
     FieldItem ***items;
     MoveMediator *moveMediator = nullptr;
 
-    Base* base;
+//    Base* base;
 };
 
 

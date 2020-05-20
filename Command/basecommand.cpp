@@ -12,7 +12,8 @@ map<string, int> BaseCommand::baseInfo () {
 	info["unit count in base"] = base->getUnitCount();
 	info["max unit in base"] = base->getMaxCount();
 	info["base health"] = base->getHealth();
-	// TODO вывод всех юнитов
+	// TODO вывод всех юнитов V
+	info[base->printUnits()] = 0;
 	return info;
 }
 

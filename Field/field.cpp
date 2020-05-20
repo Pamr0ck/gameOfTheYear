@@ -225,9 +225,9 @@ bool Field::deleteUnit(unsigned x, unsigned y) {
     return true;
 }
 
-Base *Field::getBase () const {
-	return base;
-}
+//Base *Field::getBase () const {
+//	return base;
+//}
 
 bool Field::addNeutral (NeutralObj * item, unsigned x, unsigned y) {
 	if(x >= width || y >= height){
@@ -271,21 +271,21 @@ void Field::update (Subject * subject)
 //	deleteUnit(subject);
 }
 
-void Field::setBase (Base * base) {
-	if(base->getMaxCount() <= 0)
-		throw invalid_argument("maxCount must be >0");
-	if(base->getHealth() <= 0)
-		throw invalid_argument("health must be >0");
-	if(base->getX() > width)
-		throw invalid_argument("width must be < curr width");
-	if(base->getY() > height)
-		throw invalid_argument("height must be < curr height");
-	if (base->getBaseNumb() == 1)
-		this->base = new Base(base->getMaxCount(), base->getHealth(),
-		         base->getX(), base->getY(), base->getBaseNumb());
-	else throw invalid_argument("there is a base");
-
-}
+//void Field::setBase (Base * base) {
+//	if(base->getMaxCount() <= 0)
+//		throw invalid_argument("maxCount must be >0");
+//	if(base->getHealth() <= 0)
+//		throw invalid_argument("health must be >0");
+//	if(base->getX() > width)
+//		throw invalid_argument("width must be < curr width");
+//	if(base->getY() > height)
+//		throw invalid_argument("height must be < curr height");
+//	if (base->getBaseNumb() == 1)
+//		this->base = new Base(base->getMaxCount(), base->getHealth(),
+//		         base->getX(), base->getY(), base->getBaseNumb());
+//	else throw invalid_argument("there is a base");
+//
+//}
 
 string Field::printBase (Base *base) {
 	return base->printUnits();

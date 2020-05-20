@@ -3,6 +3,7 @@
 
 #include "neutralObj.h"
 #include "landscape.h"
+#include "base.h"
 
 class FieldItem
 {
@@ -23,11 +24,14 @@ public:
     Unit* getUnit() const;
     NeutralObj* getNeutral() const;
     Landscape* getLandscape() const;
+	Base *getBase() const;
+	void setBase(Base *value);
 
 private:
     Unit* unit;
     NeutralObj* neutral;
     Landscape* land;
+    Base* base;
 };
 
 #endif //FIELDITEM_H

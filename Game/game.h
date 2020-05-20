@@ -13,6 +13,7 @@
 
 class Game
 {
+public:
 	Game(unsigned x, unsigned y, unsigned limit);
 	void createBase( unsigned  maxUnits, int health, int x, int y, int baseNumb);
 	void createNeutral(Neutraltype obj,unsigned x, unsigned y);

@@ -43,7 +43,7 @@ map<string, int> FieldCommand::moveUnit () {
 	catch(invalid_argument& e){info[e.what()]=0;}
 	return info;
 }
-
+//
 //map<string, int> FieldCommand::findUnit () {
 //	map<string, int> info;
 //	if(!unit)

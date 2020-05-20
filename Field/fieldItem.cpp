@@ -102,3 +102,11 @@ Landscape *FieldItem::getLandscape () const
     return land;
 }
 
+Base *FieldItem::getBase () const {
+	return base;
+}
+
+void FieldItem::setBase (Base *value) {
+	base = value;
+}
+
