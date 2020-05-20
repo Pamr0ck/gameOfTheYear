@@ -11,6 +11,7 @@ class Armor
 public:
     virtual void use(Unit&) = 0;
     virtual ~Armor() = default;
+	virtual Neutraltype type()=0;
 };
 
 class GetArmor : public NeutralObj
@@ -33,11 +34,13 @@ public:
     std::string characteristics() const {return "armor";}
 
     std::string getType() const {return "neutral";}
+	Neutraltype getEnumType(){return  armor->type();}
 };
 
 class Helmet : public Armor
 {
 public:
+	Neutraltype type() {return HELMET;}
 	void use(Unit& unit)
 	{
 		unit.getCharacteristics()->setArmor(unit.getCharacteristics()->getArmor() + 20);
@@ -48,6 +51,7 @@ public:
 class MithrilHauberk : public Armor
 {
 public:
+	Neutraltype type() {return MITHRILHAUBERK;}
     void use(Unit& unit)
     {
         unit.getCharacteristics()->setArmor(unit.getCharacteristics()->getArmor() + 30);
@@ -57,6 +61,7 @@ public:
 class MantleOfInvisibility : public Armor
 {
 public:
+	Neutraltype type() {return MANTLEOFINVISIBILITY;}
     void use(Unit& unit)
     {
         unit.getCharacteristics()->setArmor(unit.getCharacteristics()->getArmor() + 50);

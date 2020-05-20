@@ -15,7 +15,7 @@ class Game
 {
 	Game(unsigned x, unsigned y, unsigned limit);
 	void createBase( unsigned  maxUnits, int health, int x, int y, int baseNumb);
-	void createNeutral(NeutralType obj,unsigned x, unsigned y);
+	void createNeutral(Neutraltype obj,unsigned x, unsigned y);
 	void addUnit(Unit *unit, Base *base);
 	void deleteUnit(Unit *unit, Base *base);
 	Base* getBaseByNum(int num);

@@ -11,6 +11,7 @@ class Weapon
 public:
     virtual ~Weapon() = default;
     virtual void use(Unit&) = 0;
+	virtual Neutraltype type()=0;
 };
 
 class GetWeapon : public NeutralObj
@@ -33,6 +34,7 @@ public:
     std::string characteristics() const {return "weapon";}
 
     std::string getType() const {return "neutral";}
+	Neutraltype getEnumType(){return  weapon->type();}
 };
 
 
@@ -40,6 +42,7 @@ public:
 class Sting : public Weapon   // from Frodo with love
 {
 public:
+	Neutraltype type() {return STING;}
     void use (Unit& unit)
     {
         unit.getCharacteristics()->setDamage(unit.getCharacteristics()->getDamage() + 30);
@@ -49,6 +52,7 @@ public:
 class PurpleJediSword : public Weapon   // surprise mathe**cker
 {
 public:
+	Neutraltype type() {return PURPLEJEDISWORD;}
     void use (Unit& unit)
     {
         unit.getCharacteristics()->setDamage(unit.getCharacteristics()->getDamage() + 70);
@@ -57,6 +61,7 @@ public:
 class Excalibur : public Weapon
 {
 public:
+	Neutraltype type() {return EXCALIBUR;}
 	void use(Unit& unit)
 	{
 		unit.getCharacteristics()->setDamage(unit.getCharacteristics()->getDamage() + 100);

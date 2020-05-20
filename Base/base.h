@@ -11,7 +11,7 @@
 class Base
 {
 public:
-    Base(int, int, int, int, int);
+    Base(int maxUnitsCount, int health,int xx, int yy, int baseNumb);
 
     int getBaseNumb() const;
     int getX() const;

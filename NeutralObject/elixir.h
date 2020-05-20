@@ -11,6 +11,7 @@ class Elixir
 public:
     virtual ~Elixir() = default;
     virtual void use(Unit&) = 0;
+	virtual Neutraltype type()=0;
 };
 
 class GetElixir : public NeutralObj
@@ -33,11 +34,13 @@ public:
     std::string characteristics() const {return "elixir";}
 
     std::string getType() const {return "neutral";}
+	Neutraltype getEnumType(){return  elixir->type();}
 };
 
 class Swallow : public Elixir
 {
 public:
+	Neutraltype type() {return SWALLOW;}
     void use(Unit& unit)
     {
         unit.getCharacteristics()->setHealth(unit.getCharacteristics()->getHealth() + 1000);
@@ -47,6 +50,7 @@ public:
 class Thunderbolt : public Elixir
 {
 public:
+	Neutraltype type() {return THUNDERBOLT;}
     void use (Unit& unit)
     {
         unit.getCharacteristics()->setHealth(unit.getCharacteristics()->getHealth() + 700);
@@ -57,6 +61,7 @@ public:
 class TheAncientDrink : public Elixir
 {
 public:
+	Neutraltype type() {return THEANCIENTDRINK;}
     void use (Unit& unit)
     {
         auto tmp = std::rand()%50 + 1;
