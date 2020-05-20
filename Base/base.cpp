@@ -133,6 +133,18 @@ std::string Base::printUnits ()
 	return units->getUnits();
 }
 
+void Base::setCreateMediator (CreateMediator *value) {
+	createMediator = value;
+}
+
+CreateMediator *Base::getCreateMediator () const {
+	return createMediator;
+}
+
+void Base::setGameMediator (GameMediator *val) {
+	gameMediator = val;
+}
+
 //void Base::delUnit (Subject *u) {
 //
 //}

@@ -30,7 +30,7 @@ public:
 	bool isCellFreeForUnit(size_t, size_t);
 
 
-	bool addUnit (Unit *item, unsigned x, unsigned y, int baseNum);
+	bool addUnit (Unit *item, unsigned x, unsigned y, int baseNum = 1);
 	bool deleteUnit(unsigned x, unsigned y);
 
 //	bool deleteItem(FieldItem *item);

@@ -199,9 +199,9 @@ bool Field::addUnit (Unit *item, unsigned x, unsigned y, int baseNum) {
 	if (!p->canMove(item))
 		throw invalid_argument("item  can't add to this landscape");
 	//Base* base = (baseNum == 1) ? base;
-	Base* bASE = base;
-	if (!bASE)
-		throw invalid_argument("create base!!!!");
+//	Base* bASE = base;
+//	if (!bASE)
+//		throw invalid_argument("create base!!!!");
 	base->addUnit(item);
 	items[x][y]->addUnit(item);
 	items[x][y]->getUnit()->attach(this);

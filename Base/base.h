@@ -5,6 +5,8 @@
 #include "../Units/Factory/direFactory.h"
 #include "../Units/Factory/radiantFactory.h"
 #include "enums.h"
+#include "Game/gamemediator.h"
+#include "Game/createmediator.h"
 
 class Base
 {
@@ -26,6 +28,12 @@ public:
     std::string printUnits();
 
     std::string shortName();
+
+	void setCreateMediator(CreateMediator *value);
+
+	CreateMediator *getCreateMediator() const;
+	void setGameMediator(GameMediator* val);
+
 private:
     std::string name;
     int baseNumb;
@@ -37,6 +45,11 @@ private:
     Component* units;
     UnitFactory* direFactory = new DireFactory();
     UnitFactory* radiantFactory = new RadiantFactory();
+	GameMediator* gameMediator;
+	CreateMediator* createMediator;
+
+
+
 
 };
 
