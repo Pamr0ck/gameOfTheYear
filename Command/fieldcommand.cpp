@@ -15,6 +15,7 @@ map<string, int> FieldCommand::unitInfo () {
 	Unit* u = field->getItem(x, y)->getUnit();
 	if (u)
 		info["unit characteristics:\n" + u->about()]=0;
+	return info;
 }
 
 map<string, int> FieldCommand::getUnitMap () {

@@ -5,9 +5,9 @@
 #ifndef RADIANTFACTORY_H
 #define RADIANTFACTORY_H
 #include "unitFactory.h"
-#include "../Melee/knight.h"
-#include "../Support/dryad.h"
-#include "../Range/dragon.h"
+#include "knight.h"
+#include "dryad.h"
+#include "dragon.h"
 
 class RadiantFactory: public UnitFactory
 {

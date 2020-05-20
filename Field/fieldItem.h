@@ -1,8 +1,8 @@
 #ifndef FIELDITEM_H
 #define FIELDITEM_H
 
-#include "../NeutralObject/neutralObj.h"
-#include "../Landscape/landscape.h"
+#include "neutralObj.h"
+#include "landscape.h"
 
 class FieldItem
 {

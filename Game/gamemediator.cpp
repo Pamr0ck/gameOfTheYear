@@ -3,7 +3,7 @@
 //
 #include "gamemediator.h"
 #include "game.h"
-#include "Base/base.h"
+#include "base.h"
 
 GameMediator::GameMediator (Game *game, Base *base):game(game), base(base) {
 	base->setGameMediator(this);

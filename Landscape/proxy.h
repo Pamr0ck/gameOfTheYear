@@ -5,7 +5,7 @@
 #ifndef PROXY_H
 #define PROXY_H
 
-#include "../Units/unit.h"
+#include "unit.h"
 #include "landscape.h"
 
 class Proxy : public Landscape

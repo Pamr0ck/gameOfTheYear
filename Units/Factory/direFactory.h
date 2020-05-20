@@ -5,9 +5,9 @@
 #ifndef DIREFACTORY_H
 #define DIREFACTORY_H
 #include "unitFactory.h"
-#include "../Melee/ork.h"
-#include "../Support/witch.h"
-#include "../Range/chimera.h"
+#include "ork.h"
+#include "witch.h"
+#include "chimera.h"
 
 
 class DireFactory: public UnitFactory

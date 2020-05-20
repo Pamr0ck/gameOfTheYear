@@ -5,12 +5,13 @@
 #ifndef NEUTRALOBJ_H
 #define NEUTRALOBJ_H
 
-#include "../Units/unit.h"
+#include "unit.h"
 class NeutralObj {
 public:
     virtual ~NeutralObj() = default;
     virtual void operator += (Unit&) = 0;
     virtual std::string characteristics() const = 0;
+
 
 };
 

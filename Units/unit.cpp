@@ -62,3 +62,32 @@ void Unit::setArmor (int val)
 {
     characteristics->setArmor(val);
 }
+
+void Unit::setAttackMediator (AttackMediator *value) {
+	attackMediator = value;
+}
+
+void Unit::attack (int x, int y) {
+	attackMediator->attack(this, x, y);
+}
+
+bool Unit::recieveAttack (Unit *u) {
+	auto * attacker = u->getCharacteristics();
+	auto armor = characteristics->getArmor() - attacker->getDamage();
+	if (armor < 0)
+	{
+		characteristics->setArmor(0);
+		auto health = characteristics->getHealth() + armor ; //armor < 0 => -armor
+		if(health <= 0)
+			return  false;
+		else
+			characteristics->setHealth(health);
+	}
+	else
+		characteristics->setArmor(armor);
+	return true;
+}
+
+int Unit::getBaseNumber () const {
+	return baseNumber;
+}

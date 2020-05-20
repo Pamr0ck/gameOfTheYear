@@ -5,7 +5,7 @@
 #ifndef FIELDCOMMAND_H
 #define FIELDCOMMAND_H
 #include "command.h"
-#include "Field/field.h"
+#include "field.h"
 
 
 class FieldCommand: public Command {

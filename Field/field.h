@@ -6,8 +6,8 @@
 #define FIELD_H
 
 #include "fieldItem.h"
-#include "../Landscape/proxy.h"
-#include "../Base/base.h"
+#include "proxy.h"
+#include "base.h"
 
 using namespace std;
 

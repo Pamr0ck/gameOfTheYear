@@ -6,15 +6,11 @@
 #define UNIT_H
 #include <iostream>
 #include "characteristics.h"
-#include "../moveMediator.h"
-#include "../subject.h"
+#include "moveMediator.h"
+#include "subject.h"
 #include "enums.h"
+#include "Game/attackmediator.h"
 
-//class IObserver : public FieldItem
-//{
-//public:
-////    virtual void deleteUnit(FieldItem* obj) = 0;
-//};
 
 class Unit : public Subject
 {
@@ -43,11 +39,19 @@ public:
     void setDamage(int);
     void setArmor(int);
 
+	void setAttackMediator(AttackMediator *value);
+	void attack(int x, int y);
+
+	bool recieveAttack(Unit* u);
+	int getBaseNumber() const;
+
 
 protected:
     std::string name;
     bool movable = true;
     Characteristics* characteristics;
     MoveMediator* moveMediator;
+	AttackMediator* attackMediator;
+	int baseNumber;
 };
 #endif //UNIT_H

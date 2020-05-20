@@ -4,7 +4,7 @@
 
 #ifndef MELEE_H
 #define MELEE_H
-#include "../unit.h"
+#include "unit.h"
 
 class Melee : public Unit
 {

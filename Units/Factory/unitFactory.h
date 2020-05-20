@@ -6,9 +6,9 @@
 #define UNITFACTORY_H
 
 
-#include "../Melee/melee.h"
-#include "../Support/support.h"
-#include "../Range/range.h"
+#include "melee.h"
+#include "support.h"
+#include "range.h"
 
 class UnitFactory {
 public:
