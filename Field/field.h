@@ -30,7 +30,7 @@ public:
 	bool isCellFreeForUnit(size_t, size_t);
 
 
-	bool addUnit (Unit *item, unsigned x, unsigned y, int baseNum = 1);
+	bool addUnit (Unit *item, unsigned x, unsigned y);
 	bool deleteUnit(unsigned x, unsigned y);
 
 //	bool deleteItem(FieldItem *item);
@@ -52,6 +52,7 @@ public:
 	string getLandMap();
 	FieldItem *getItem(unsigned x, unsigned y) const;
 	unsigned getItemCounter() const;
+	void setCreateMediator(CreateMediator *value);
 	//string getNeutralMap();
 
 
@@ -70,6 +71,7 @@ private:
     unsigned itemCounter;
     FieldItem ***items;
     MoveMediator *moveMediator = nullptr;
+	CreateMediator* createMediator;
 
 //    Base* base;
 };

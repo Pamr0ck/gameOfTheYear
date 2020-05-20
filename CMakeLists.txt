@@ -52,4 +52,4 @@ add_executable(gameOfTheYear
         moveMediator.h
         observer.h
         subject.cpp
-        subject.h Command/command.h enums.h Command/basecommand.cpp Command/basecommand.h Command/fieldcommand.cpp Command/fieldcommand.h Game/gamemediator.h Game/createmediator.h Game/game.cpp Game/game.h Game/createmediator.cpp Game/gamemediator.cpp Game/attackmediator.cpp Game/attackmediator.h Command/gamecommand.cpp Command/gamecommand.h)
+        subject.h Command/command.h enums.h Command/basecommand.cpp Command/basecommand.h Command/fieldcommand.cpp Command/fieldcommand.h Game/gamemediator.h Game/createmediator.h Game/game.cpp Game/game.h Game/createmediator.cpp Game/gamemediator.cpp Game/attackmediator.cpp Game/attackmediator.h Command/gamecommand.cpp Command/gamecommand.h Game/facade.cpp Game/facade.h)

@@ -7,5 +7,5 @@
 
 void CreateMediator::notify (Unit *unit, unsigned int x, unsigned int y)
 {
-		field->addUnit(unit, x, y);
+	field->addUnit(unit, x, y);
 }

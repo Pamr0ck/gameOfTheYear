@@ -20,7 +20,7 @@ void MoveMediator::movObj(Unit * item, int x, int y)
 
 Field::Field(unsigned width, unsigned height, unsigned maxIt)
     :width(width), height(height), maxItems(maxIt),
-    itemCounter(0), base(nullptr)
+    itemCounter(0)
     {
 
     items = new FieldItem **[width];
@@ -41,7 +41,7 @@ Field::Field(unsigned width, unsigned height, unsigned maxIt)
 
 Field::Field(const Field &field)
     :width(field.width), height(field.height), maxItems(field.maxItems),
-	itemCounter(field.itemCounter), base(field.base) {
+	itemCounter(field.itemCounter) {
 
 	items = new FieldItem **[width];
 	for (unsigned i = 0; i < width; i++) {
@@ -57,7 +57,7 @@ Field::Field(const Field &field)
 
 Field::Field(Field &&field)
 		:width(field.width), height(field.height), maxItems(field.maxItems),
-		 itemCounter(field.itemCounter), base(field.base) {
+		 itemCounter(field.itemCounter){
 	items = new FieldItem **[width];
 	for (unsigned i = 0; i < width; i++) {
 		items[i] = new FieldItem *[height];
@@ -103,8 +103,6 @@ Field &Field::operator=(const Field &field) {
 		}
 	}
 
-	delete base;
-	base = field.base;
 	return *this;
 }
 
@@ -124,7 +122,7 @@ Field &Field::operator=(Field &&field) {
 	for(unsigned i=0; i < width; i++)
 		delete []  field.items[i];
 	delete [] field.items;
-	base = field.base;
+
 	return *this;
 }
 
@@ -185,7 +183,7 @@ bool Field::moveUnit (Unit * item, int x, int y)  {
 	return false;
 }
 
-bool Field::addUnit (Unit *item, unsigned x, unsigned y, int baseNum) {
+bool Field::addUnit (Unit *item, unsigned x, unsigned y) {
     if (itemCounter == maxItems)
         throw length_error("limit of field items is reached");
     if (x >= width || y >= height)
@@ -202,7 +200,7 @@ bool Field::addUnit (Unit *item, unsigned x, unsigned y, int baseNum) {
 //	Base* bASE = base;
 //	if (!bASE)
 //		throw invalid_argument("create base!!!!");
-	base->addUnit(item);
+//	base->addUnit(item);
 	items[x][y]->addUnit(item);
 	items[x][y]->getUnit()->attach(this);
     itemCounter++;
@@ -216,8 +214,8 @@ bool Field::deleteUnit(unsigned x, unsigned y) {
         throw out_of_range("coords are out of field");
     if (items[x][y]->isUnitFree())
         return false;
-    if (base)
-    	base->delUnit(items[x][y]->getUnit());
+//    if (base)
+//    	base->delUnit(items[x][y]->getUnit());
 
 	items[x][y]->getUnit()->detach(this);
 	items[x][y]->delUnit();
@@ -293,14 +291,16 @@ string Field::printBase (Base *base) {
 
 string Field::getUnitMap () {
 	std::string output = "";
-	auto baseX = base->getX();
-	auto baseY = base->getY();
+//	auto baseX = base->getX();
+//	auto baseY = base->getY();
 	for (unsigned i=0; i<width; i++)
 	{
 		for (unsigned j=0; j<height; j++)
 		{
-			if( i == baseX && j == baseY)
-				output += base->shortName() + "\t";
+//			if( i == baseX && j == baseY)
+//				output += base->shortName() + "\t";
+			if(items[i][j]->getBase()!= nullptr)
+				output += items[i][j]->getBase()->shortName() + "\t";
 			else if (!items[i][j]->isUnitFree()) {
 				auto tmp = items[i][j]->getUnit()->getName();
 				output += items[i][j]->getUnit()->getName() + "\t";
@@ -339,15 +339,13 @@ string Field::getUnitMap () {
 
 string Field::getLandMap () {
 	std::string output = "";
-	auto baseX = base->getX();
-	auto baseY = base->getY();
+//	auto baseX = base->getX();
+//	auto baseY = base->getY();
 	for (unsigned i=0; i<width; i++)
-	{
 		for (unsigned j=0; j<height; j++)
 		{
-			if( i == baseX && j == baseY) {
-				output += base->shortName() + '\t';
-			}
+			if(items[i][j]->getBase()!= nullptr)
+				output += items[i][j]->getBase()->shortName() + "\t";
 
 			else if (items[i][j]->getLandscape()) {
 				auto *tmp = new Proxy(items[i][j]->getLandscape());
@@ -358,7 +356,6 @@ string Field::getLandMap () {
 				output += "empty\t";
 		}
 		output += "\n";
-	}
 	return output;
 }
 
@@ -379,6 +376,9 @@ std::string Field::getAbout(unsigned x, unsigned y)
     return "At X=" + std::to_string(x) + ",Y=" + std::to_string(y) + " is set:\n" + items[x][y]->getUnit()->about();
 }
 
+void Field::setCreateMediator (CreateMediator *value) {
+	createMediator = value;
+}
 
 
 FieldIterator::FieldIterator(const Field *field)

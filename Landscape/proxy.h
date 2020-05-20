@@ -20,6 +20,7 @@ public:
     bool canAttack(Unit*);
     ~Proxy();
     std::string getType() const;
+	LandType getEnumType() const;
 };
 
 

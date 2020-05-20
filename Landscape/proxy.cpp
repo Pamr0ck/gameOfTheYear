@@ -57,3 +57,7 @@ std::string Proxy::getType() const
     return "ERROR";
 
 }
+
+LandType Proxy::getEnumType () const {
+	return landscape->getEnumType();
+}

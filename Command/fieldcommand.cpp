@@ -99,5 +99,16 @@ Unit *FieldCommand::returnUnit () {
 }
 
 map<string, int> FieldCommand::mainInfoAboutObj () {
-	return map<string, int>();
+	switch (action) {
+		case MAP_UNITS:
+			return getUnitMap();
+		case MAP_LAND:
+			return  getLandMap();
+		case MOVE:
+			return moveUnit();
+		case UNIT_INFO:
+			return unitInfo();
+		default:
+			return noSuchAct();
+	}
 }

@@ -70,27 +70,93 @@ map<string, int> GameCommand::addBase () {
 	auto y = params.find("pos")->second.y;
 	auto baseNumb = params.find("addParams")->second.base;
 	try{
-		if(game->getField()->getItem(x,y)->g)
+		if(game->getField()->getItem(x,y)->getBase())
+			throw invalid_argument ("there is a base on cell");
+		else{
+			game->createBase(maxUnit, health, x, y, baseNumb);
+			info["base was created "]= baseNumb;
+		}
 	}
+	catch (out_of_range& e){
+		info[e.what()] = 0;
+	}
+	return info;
 
 }
 
 map<string, int> GameCommand::addNeutral () {
-	return map<string, int>();
+	map<string, int> info;
+	auto x = params.find("addParams")->second.x;
+	auto y = params.find("addParams")->second.y;
+	try {
+		game->createNeutral(params.find("addParams")
+		->second.neutraltype,x,y);
+		info["neutral added"] = ADD_NEUTRAL;
+		info["pos x "] = x;
+		info["pos y "] = y;
+	}
+	catch(out_of_range& e){
+		info[e.what()]=0;
+	}catch(invalid_argument& e){
+		info[e.what()]=0;
+	}
+	return info;
 }
 
 map<string, int> GameCommand::addUnit () {
-	return map<string, int>();
+	auto baseNum = params.find("addParasm")->second.base;
+	Base* base;
+	try {
+		base = game->getBaseByNum(baseNum);
+	}
+	catch (invalid_argument& e) {
+		map<string, int> info;
+		info[e.what()]=0;
+		return info;
+	}
+	CreateMediator* createMediator = new CreateMediator(game->getField(),base);
+	base->setCreateMediator(createMediator);
+	game->getField()->setCreateMediator(createMediator);
+	BaseCommand com(base, action, params);
+	return  com.mainInfoAboutObj();
 }
 
 map<string, int> GameCommand::noSuchAct () {
-	return map<string, int>();
+	map<string, int> info;
+	info["no such action"] = 0;
+	return  info;
 }
 
 GameCommand::GameCommand (Game *game, Actions act, map<string, Data> param) {
-
+	this->game = game;
+	action = act;
+	params = param;
 }
 
 map<string, int> GameCommand::mainInfoAboutObj () {
-	return map<string, int>();
+	switch (action) {
+		case GAME_INFO:
+			return  gameInfo();
+		case BASE_INFO:
+			return  baseInfo();
+		case MAP_LAND:
+		case MAP_UNITS:
+		case UNIT_INFO:
+		{
+			FieldCommand com(game->getField(), action, params);
+			return  com.mainInfoAboutObj();
+		}
+		case ATTACK:
+			return attack();
+		case MOVE:
+			return move();
+		case ADD_BASE:
+			return  addBase();
+		case ADD_NEUTRAL:
+			return addNeutral();
+		case ADD_UNIT:
+			return  addUnit();
+		default:
+			return noSuchAct();
+	}
 }

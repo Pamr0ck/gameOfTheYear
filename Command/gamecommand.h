@@ -8,6 +8,7 @@
 #include "Game/game.h"
 #include "basecommand.h"
 #include "fieldcommand.h"
+#include "Game/createmediator.h"
 class GameCommand : public Command{
 private:
 	map<string, int> baseInfo();
